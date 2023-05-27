@@ -1,0 +1,1 @@
+const e=document.getElementById("loadingScreen");window.onload=()=>{e.style.opacity=0,e.style.visibility="hidden",setTimeout((()=>{e.style.display="none"}),300)};
