@@ -2,7 +2,13 @@
   "name": "ninluc.github.io",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://ninluc.github.io",
+  "license" : "SEE LICENSE IN LICENCE",
   "type": "module",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Ninluc/ninluc.github.io.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
