@@ -1,15 +1,13 @@
-# [ninluc.github.io](https://ninluc.github.io/)
+# [matthiasg.dev](https://matthiasg.dev)
 
-Personnal website/portfolio hosted on github pages (because it is free).
+Personnal website/portfolio hosted on a raspberry pi.
 
-This is the source code, the compiled code is in the ./docs directory.
+This is the source code of my new website, the code on the website is the old one.
 
 The project is build using [svelte](https://svelte.dev/).
 
-## Disclaimer
-
-For now the website hasn't started, I just put my old website until this one is
-started.
+# State of the project
+The design has finished, I will first make the homepage.
 
 # Other
 
