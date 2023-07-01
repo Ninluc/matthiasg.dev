@@ -1,27 +1,39 @@
 {
-  "name": "ninluc.github.io",
-  "private": true,
-  "version": "0.0.0",
-  "homepage": "https://ninluc.github.io",
-  "license" : "SEE LICENSE IN LICENCE",
-  "type": "module",
-  "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Ninluc/ninluc.github.io.git"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
-  },
-  "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.0.3",
-    "@tsconfig/svelte": "^4.0.1",
-    "svelte": "^3.57.0",
-    "svelte-check": "^2.10.3",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.2",
-    "vite": "^4.3.2"
-  }
+	"name": "matthiasg.dev",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"test": "npm run test:integration && npm run test:unit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"format": "prettier --plugin-search-dir . --write .",
+		"test:integration": "playwright test",
+		"test:unit": "vitest"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-node": "^1.3.0",
+		"@sveltejs/kit": "^1.20.4",
+		"@types/glob": "^8.1.0",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte": "^2.30.0",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.10.1",
+		"sass": "^1.63.6",
+		"svelte": "^4.0.0",
+		"svelte-check": "^3.4.3",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^4.3.6",
+		"vitest": "^0.32.2"
+	},
+	"type": "module"
 }
