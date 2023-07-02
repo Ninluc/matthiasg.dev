@@ -1,6 +1,13 @@
 import { chromium } from '@playwright/test';
 import { glob } from 'glob';
 
+/**
+ * Test if the heading hierarchy is correct.
+ * Will return incorrect if heading order is incorrect or if a heading type is
+ * skipped.
+ * If for example a h2 preceed a h1, it will be incorrect.
+ * If the page goes from a h3 to a h5, it will be incorrect.
+ */
 (async () => {
 	// Launch the browser
 	const browser = await chromium.launch();
