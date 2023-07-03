@@ -1,2 +1,13 @@
 @use 'theme';
 @use 'font';
+
+html, body {
+    padding: 0;
+    margin: 0;
+
+    width: 100dvw;
+}
+
+body * {
+    box-sizing: border-box;
+}
