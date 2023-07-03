@@ -1,0 +1,142 @@
+@use "sass:list";
+
+@use 'theme' as th;
+
+/* =~= font declaration =~= */
+$staticFolder: '/';
+/* cpmono_v07-light */
+@font-face {
+	font-family: CPMono_v07;
+	font-style: normal;
+	font-weight: 300;
+	src: local("CPMono_v07 Light"), local("CPMono_v07Light"), url($staticFolder + 'cpmono_v07-light.woff2') format("woff2");
+}
+/* hacked */
+/* @font-face {
+	font-family: HACKED;
+	font-style: normal;
+	font-weight: 400;
+	src: local("HACKED"), url($staticFolder + 'hacked.woff2') format("woff2");
+} */
+/* helvetica-neue-medium */
+@font-face {
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: 500;
+	src: local("Helvetica Neue Medium"), local("HelveticaNeue-Medium"), url($staticFolder + 'helvetica-neue-medium.woff2') format("woff2");
+}
+/* helvetica-neue-light */
+@font-face {
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: 300;
+	src: local("Helvetica Neue Light"), local("HelveticaNeue-Light"), url($staticFolder + 'helvetica-neue-light.woff2') format("woff2");
+}
+/* montserrat-bold */
+@font-face {
+	font-family: Montserrat;
+	font-style: normal;
+	font-weight: 700;
+	src: local("Montserrat Bold"), local("Montserrat-Bold"), url($staticFolder + 'montserrat-bold.woff2') format("woff2");
+}
+/* source-sans-3-light-italic */
+@font-face {
+	font-family: Source Sans 3;
+	font-style: italic;
+	font-weight: 300;
+	src: local("Source Sans 3 Light Italic"), local("SourceSans3-LightItalic"), url($staticFolder + 'source-sans-3-light-italic.woff2') format("woff2");
+}
+/* source-sans-3-italic */
+@font-face {
+	font-family: Source Sans 3;
+	font-style: italic;
+	font-weight: 400;
+	src: local("Source Sans 3 Italic"), local("SourceSans3-Italic"), url($staticFolder + 'source-sans-3-italic.woff2') format("woff2");
+}
+/* source-sans-3-regular */
+@font-face {
+	font-family: Source Sans 3;
+	font-style: normal;
+	font-weight: 400;
+	src: local("Source Sans 3 Regular"), local("SourceSans3-Regular"), url($staticFolder + 'source-sans-3-regular.woff2') format("woff2");
+}
+/* ubuntu-mono */
+@font-face {
+	font-family: Ubuntu Mono;
+	font-style: normal;
+	font-weight: 400;
+	src: local("Ubuntu Mono"), local("UbuntuMono-Regular"), url($staticFolder + 'ubuntu-mono.woff2') format("woff2");
+}
+
+
+/* =~= fonts ≃~= */
+/* Main */
+$family-main: th.$font-family-base;
+$size-main: th.$font-size-base;
+$weight-main: 400;
+$style-main: normal;
+$lineheight-main: 1.1rem;
+$letterspacing-main: -0.1rem;
+$main: $style-main $weight-main list.slash($size-main, $lineheight-main) $family-main;
+/* Main links */
+$family-linkmain: th.$font-family-base;
+$size-linkmain: th.$font-size-base;
+$weight-linkmain: 400;
+$style-linkmain: normal;
+$lineheight-linkmain: 1.2rem;
+$letterspacing-linkmain: 0rem;
+$linkmain: $style-linkmain $weight-linkmain list.slash($size-linkmain, $lineheight-linkmain) $family-linkmain;
+
+/* Title */
+$family-title: th.$font-family-heading;
+$size-title: th.$font-size-heading;
+$weight-title: 700;
+$style-title: normal;
+$lineheight-title: 1.2rem;
+$letterspacing-title: -1rem;
+$title: $style-title $weight-title list.slash($size-title, $lineheight-title) $family-title;
+
+/* Header link */
+$family-headerlink: $family-main;
+$size-headerlink: 2em;
+$weight-headerlink: 300;
+$style-headerlink: italic;
+$lineheight-headerlink: 1.2rem;
+$letterspacing-headerlink: -1rem;
+$headerlink: $style-headerlink $weight-headerlink list.slash($size-headerlink, $lineheight-headerlink) $family-headerlink;
+
+/* -- Others -- */
+/* Loading */
+$family-loading: 'Ubuntu Mono';
+$size-loading: 0.8125em;
+$weight-loading: 400;
+$style-loading: normal;
+$lineheight-loading: 1.2rem;
+$letterspacing-loading: 0rem;
+$loading: $style-loading $weight-loading list.slash($size-loading, $lineheight-loading) $family-loading;
+
+/* > Profiler */
+/* Code */
+$family-profiler-code: 'CPMono_v07';
+$size-profiler-code: 1.5em;
+$weight-profiler-code: 300;
+$style-profiler-code: normal;
+$lineheight-profiler-code: 1.2rem;
+$letterspacing-profiler-code: 0rem;
+$profiler-code: $style-profiler-code $weight-profiler-code list.slash($size-profiler-code, $lineheight-profiler-code) $family-profiler-code;
+/* Main */
+$family-profiler-main: 'Helvetica Neue';
+$size-profiler-main: 2.8125em;
+$weight-profiler-main: 500;
+$style-profiler-main: normal;
+$lineheight-profiler-main: 1.3rem;
+$letterspacing-profiler-main: -1.8rem; // TODO : CHANGEME
+$profiler-main: $style-profiler-main $weight-profiler-main list.slash($size-profiler-main, $lineheight-profiler-main) $family-profiler-main;
+/* Secondary */
+$family-profiler-secondary: $family-profiler-main;
+$size-profiler-secondary: 2.125em;
+$weight-profiler-secondary: 300;
+$style-profiler-secondary: normal;
+$lineheight-profiler-secondary: 1.2rem;
+$letterspacing-profiler-secondary: 0rem;
+$profiler-secondary: $style-profiler-secondary $weight-profiler-secondary list.slash($size-profiler-secondary, $lineheight-profiler-secondary) $family-profiler-secondary;
