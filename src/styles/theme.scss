@@ -1,0 +1,115 @@
+/* =~= Theme Colors  =~= */
+/* primary | #D4D6D7 */
+$color-primary: #D4D6D7;
+$color-primary-50: #f9f9f9;
+$color-primary-100: #f6f7f7;
+$color-primary-200: #f4f5f5;
+$color-primary-300: #eeefef;
+$color-primary-400: #e1e2e3;
+$color-primary-500: $color-primary;
+$color-primary-600: #bfc1c2;
+$color-primary-700: #9fa1a1;
+$color-primary-800: #7f8081;
+$color-primary-900: #686969;
+/* secondary | #1E1F23 */
+$color-secondary: #1E1F23;
+$color-secondary-50: #ddddde;
+$color-secondary-100: #d2d2d3;
+$color-secondary-200: #c7c7c8;
+$color-secondary-300: #a5a5a7;
+$color-secondary-400: #626265;
+$color-secondary-500: $color-secondary;
+$color-secondary-600: #1b1c20;
+$color-secondary-700: #17171a;
+$color-secondary-800: #121315;
+$color-secondary-900: #0f0f11;
+/* tertiary | #6C9180 */
+$color-tertiary: #6C9180;
+$color-tertiary-50: #e9efec;
+$color-tertiary-100: #e2e9e6;
+$color-tertiary-200: #dae4df;
+$color-tertiary-300: #c4d3cc;
+$color-tertiary-400: #98b2a6;
+$color-tertiary-500: $color-tertiary;
+$color-tertiary-600: #618373;
+$color-tertiary-700: #516d60;
+$color-tertiary-800: #41574d;
+$color-tertiary-900: #35473f;
+/* success | #567C78 */
+$color-success: #567C78;
+$color-success-50: #e6ebeb;
+$color-success-100: #dde5e4;
+$color-success-200: #d5dedd;
+$color-success-300: #bbcbc9;
+$color-success-400: #89a3a1;
+$color-success-500: $color-success;
+$color-success-600: #4d706c;
+$color-success-700: #415d5a;
+$color-success-800: #344a48;
+$color-success-900: #2a3d3b;
+/* warning | #EAB308 */
+$color-warning: #EAB308;
+$color-warning-50: #fcf4da;
+$color-warning-100: #fbf0ce;
+$color-warning-200: #faecc1;
+$color-warning-300: #f7e19c;
+$color-warning-400: #f0ca52;
+$color-warning-500: $color-warning;
+$color-warning-600: #d3a107;
+$color-warning-700: #b08606;
+$color-warning-800: #8c6b05;
+$color-warning-900: #735804;
+/* error | #D41976 */
+$color-error: #D41976;
+$color-error-50: #f9ddea;
+$color-error-100: #f6d1e4;
+$color-error-200: #f4c6dd;
+$color-error-300: #eea3c8;
+$color-error-400: #e15e9f;
+$color-error-500: $color-error;
+$color-error-600: #bf176a;
+$color-error-700: #9f1359;
+$color-error-800: #7f0f47;
+$color-error-900: #680c3a;
+/* surface | #232328 */
+$color-surface: #232328;
+$color-surface-50: #dededf;
+$color-surface-100: #d3d3d4;
+$color-surface-200: #c8c8c9;
+$color-surface-300: #a7a7a9;
+$color-surface-400: #656569;
+$color-surface-500: $color-surface;
+$color-surface-600: #202024;
+$color-surface-700: #1a1a1e;
+$color-surface-800: #151518;
+$color-surface-900: #111114;
+/* completely black | #000000 */
+$color-completelyblack: #000000;
+
+
+
+/* =~= Fonts =~= */
+$font-family-base: 'Source Sans Pro';
+$font-family-heading: 'Montserrat';
+$font-size-root-default: 16px;
+$font-size-base: 1.4375rem;
+$font-size-heading: 8.75em;
+/* =~= Font Properties =~= */
+$font-color-base: $color-primary;
+$font-color-dark: $color-completelyblack;
+/* =~= Theme On-X Colors =~= */
+$font-color-on-primary: $font-color-dark;
+$font-color-on-secondary: $font-color-base;
+$font-color-on-tertiary: $font-color-dark;
+$font-color-on-success: $font-color-dark;
+$font-color-on-warning: $font-color-dark;
+$font-color-on-error: $font-color-base;
+$font-color-on-surface: $font-color-base;
+/* =~= Theme others =~= */
+$theme-borderradius: 28px;
+
+/* =~= Font size styling =~= */
+$font-size-root: $font-size-root-default;
+:root {
+    font-size: $font-size-root;
+}
