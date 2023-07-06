@@ -1,0 +1,17 @@
+@use './font.scss' as *;
+@use './theme.scss' as th;
+@use './viewWidth.scss' as vw;
+
+/* =~= Font size styling =~= */
+$font-size-root-default: 16px;
+:root {
+	font-size: $font-size-root-default;
+
+	@media only screen and (max-width: vw.$screen-medium) {
+		font-size: $font-size-root-default * 0.9;
+	}
+
+	@media only screen and (max-width: vw.$screen-small) {
+		font-size: $font-size-root-default * 0.8;
+	}
+}

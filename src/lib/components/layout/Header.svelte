@@ -54,4 +54,30 @@
             }
         }
     }
+
+	@media only screen and (max-width: $screen-medium) {
+		$headerVerticalPadding: $headerVerticalPadding - 15px;
+		@debug $headerVerticalPadding;
+		header {
+			padding: 0px $headerVerticalPadding;
+			nav {
+				ul {
+					column-gap: $headerVerticalPadding;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: $screen-small) {
+		$headerVerticalPadding: $headerVerticalPadding - 20px;
+		@debug $headerVerticalPadding;
+		header {
+			padding: 0px $headerVerticalPadding;
+			nav {
+				ul {
+					column-gap: $headerVerticalPadding;
+				}
+			}
+		}
+	}
 </style>

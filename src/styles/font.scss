@@ -79,9 +79,3 @@ $lineheight-profiler-secondary: 1.2rem;
 $letterspacing-profiler-secondary: 0rem;
 $profiler-secondary: $style-profiler-secondary $weight-profiler-secondary
 	list.slash($size-profiler-secondary, $lineheight-profiler-secondary) $family-profiler-secondary;
-
-/* =~= Font size styling =~= */
-$font-size-root: th.$font-size-root-default;
-:root {
-    font-size: $font-size-root;
-}
