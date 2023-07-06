@@ -1,6 +1,6 @@
 /* =~= Theme Colors  =~= */
 /* primary | #D4D6D7 */
-$color-primary: #D4D6D7;
+$color-primary: #d4d6d7;
 $color-primary-50: #f9f9f9;
 $color-primary-100: #f6f7f7;
 $color-primary-200: #f4f5f5;
@@ -12,7 +12,7 @@ $color-primary-700: #9fa1a1;
 $color-primary-800: #7f8081;
 $color-primary-900: #686969;
 /* secondary | #1E1F23 */
-$color-secondary: #1E1F23;
+$color-secondary: #1e1f23;
 $color-secondary-50: #ddddde;
 $color-secondary-100: #d2d2d3;
 $color-secondary-200: #c7c7c8;
@@ -24,7 +24,7 @@ $color-secondary-700: #17171a;
 $color-secondary-800: #121315;
 $color-secondary-900: #0f0f11;
 /* tertiary | #6C9180 */
-$color-tertiary: #6C9180;
+$color-tertiary: #6c9180;
 $color-tertiary-50: #e9efec;
 $color-tertiary-100: #e2e9e6;
 $color-tertiary-200: #dae4df;
@@ -36,7 +36,7 @@ $color-tertiary-700: #516d60;
 $color-tertiary-800: #41574d;
 $color-tertiary-900: #35473f;
 /* success | #567C78 */
-$color-success: #567C78;
+$color-success: #567c78;
 $color-success-50: #e6ebeb;
 $color-success-100: #dde5e4;
 $color-success-200: #d5dedd;
@@ -48,7 +48,7 @@ $color-success-700: #415d5a;
 $color-success-800: #344a48;
 $color-success-900: #2a3d3b;
 /* warning | #EAB308 */
-$color-warning: #EAB308;
+$color-warning: #eab308;
 $color-warning-50: #fcf4da;
 $color-warning-100: #fbf0ce;
 $color-warning-200: #faecc1;
@@ -60,7 +60,7 @@ $color-warning-700: #b08606;
 $color-warning-800: #8c6b05;
 $color-warning-900: #735804;
 /* error | #D41976 */
-$color-error: #D41976;
+$color-error: #d41976;
 $color-error-50: #f9ddea;
 $color-error-100: #f6d1e4;
 $color-error-200: #f4c6dd;
@@ -86,12 +86,9 @@ $color-surface-900: #111114;
 /* completely black | #000000 */
 $color-completelyblack: #000000;
 
-
-
 /* =~= Fonts =~= */
 $font-family-base: 'Source Sans 3';
 $font-family-heading: 'Montserrat';
-$font-size-root-default: 16px;
 $font-size-base: 1.4375rem;
 $font-size-heading: 8.75em;
 /* =~= Font Properties =~= */
@@ -106,16 +103,12 @@ $font-color-on-warning: $font-color-dark;
 $font-color-on-error: $font-color-base;
 $font-color-on-surface: $font-color-base;
 
-
-
 /* =~= Transition  =~= */
 $transition-time-small: 0.15s;
 $transition-time-medium: 0.3s;
 $transition-time-long: 0.5s;
 // $transition-timingfunction: ease-out;
-$transition-timingfunction: cubic-bezier(0.480, -0.015, 0.700, 0.840);
-
-
+$transition-timingfunction: cubic-bezier(0.48, -0.015, 0.7, 0.84);
 
 /* =~= Theme others =~= */
 $theme-borderradius: 28px;

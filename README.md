@@ -7,6 +7,7 @@ This is the source code of my new website, the code on the website is the old on
 The project is build using [svelte](https://svelte.dev/).
 
 # State of the project
+
 The design has finished, I will first make the homepage.
 
 # Other

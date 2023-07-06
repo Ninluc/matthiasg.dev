@@ -1,8 +1,8 @@
 <script lang="ts">
-    export let href: string = "/";
+	export let href: string = '/';
 </script>
 
-<a {href}><slot/></a>
+<a {href}><slot /></a>
 
 <style lang="scss">
     a {
@@ -21,4 +21,3 @@
         }
     }
 </style>
-

@@ -1,14 +1,16 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
 @use './styles/fontFaces.scss';
 
-html, body {
+html,
+body {
     padding: 0;
     margin: 0;
 
     width: 100dvw;
 }
 
-body, body :is(*, *:before, *:after) {
+body,
+body :is(*, *:before, *:after) {
     box-sizing: border-box;
 }
 

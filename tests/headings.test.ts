@@ -14,9 +14,8 @@ test('correct heading order', async ({ page }) => {
 	const urlsToTest = pageFiles.map((file: string) => {
 		const pagePath = file.replace(/^src\/routes/, '').replace(/\+page.svelte$/, '');
 		// return `http://localhost:5173${pagePath}`;
-		return pagePath
+		return pagePath;
 	});
-
 
 	for (const url of urlsToTest) {
 		// Navigate to the page
@@ -37,8 +36,7 @@ test('correct heading order', async ({ page }) => {
 			previousHeadingLevel = currentHeadingLevel;
 		}
 	}
-})
-
+});
 
 // (async () => {
 // 	// Launch the browser
