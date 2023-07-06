@@ -5,19 +5,26 @@
 <a {href}><slot /></a>
 
 <style lang="scss">
-    a {
-        font: $headerlink;
-        letter-spacing: $letterspacing-headerlink;
-        color: $font-color-on-surface;
+	a {
+		display: block;
 
-        text-decoration: underline;
-        text-decoration-skip-ink: all;
-        text-decoration-color: $color-surface;
+		font: $headerlink;
+		letter-spacing: $letterspacing-headerlink;
+		color: $font-color-on-surface;
 
-        transition: all $transition-time-small $transition-timingfunction;
+		text-decoration: underline;
+		text-decoration-skip-ink: all;
+		text-decoration-color: $color-completelyblack;
 
-        &:hover {
-            text-decoration-color: $font-color-on-surface;
-        }
-    }
+		transform: skewX(-9deg);
+		transform-origin: bottom;
+
+		transition: all $transition-time-small $transition-timingfunction;
+
+		&:hover {
+			text-decoration-color: $font-color-on-surface;
+
+			transform: skewX(-4deg);
+		}
+	}
 </style>
