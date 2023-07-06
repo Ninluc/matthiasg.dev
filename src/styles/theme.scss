@@ -105,5 +105,17 @@ $font-color-on-success: $font-color-dark;
 $font-color-on-warning: $font-color-dark;
 $font-color-on-error: $font-color-base;
 $font-color-on-surface: $font-color-base;
+
+
+
+/* =~= Transition  =~= */
+$transition-time-small: 0.15s;
+$transition-time-medium: 0.3s;
+$transition-time-long: 0.5s;
+// $transition-timingfunction: ease-out;
+$transition-timingfunction: cubic-bezier(0.480, -0.015, 0.700, 0.840);
+
+
+
 /* =~= Theme others =~= */
 $theme-borderradius: 28px;
