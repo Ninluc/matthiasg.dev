@@ -1,59 +1,59 @@
 <script>
-  import HeaderLink from './HeaderLink.svelte';
+	import HeaderLink from './HeaderLink.svelte';
 </script>
 
 <header>
-    <nav>
-        <ul>
-            <li>
-                <HeaderLink href="/">Accueil</HeaderLink>
-            </li>
-            <li>
-                <HeaderLink href="/projects">Mes projets</HeaderLink>
-            </li>
-            <li>
-                <HeaderLink href="/#contact">Contact</HeaderLink>
-            </li>
-        </ul>
-    </nav>
+	<nav>
+		<ul>
+			<li>
+				<HeaderLink href="/">Accueil</HeaderLink>
+			</li>
+			<li>
+				<HeaderLink href="/projects">Mes projets</HeaderLink>
+			</li>
+			<li>
+				<HeaderLink href="/#contact">Contact</HeaderLink>
+			</li>
+		</ul>
+	</nav>
 </header>
 
 <style lang="scss">
-    $headerVerticalPadding: 68px;
+	$headerVerticalPadding: 68px;
 
-    header {
-        width: 100%;
-        min-height: fit-content;
-        height: 6dvh;
-        max-height: 100dvh;
+	header {
+		width: 100%;
+		min-height: 51px;
+		height: 6.2vh;
+		max-height: 50vh;
 
-        padding: 0px $headerVerticalPadding;
+		padding: 0px $headerVerticalPadding;
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        
-        background-color: $color-completelyblack;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
-        nav {
-            flex: 1;
+		background-color: $color-completelyblack;
 
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            
-            ul {
-                width: max-content;
+		nav {
+			flex: 1;
 
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                column-gap: 68px;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
 
-                list-style-type: none;
-            }
-        }
-    }
+			ul {
+				width: max-content;
+
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				column-gap: $headerVerticalPadding;
+
+				list-style-type: none;
+			}
+		}
+	}
 
 	@media only screen and (max-width: $screen-medium) {
 		$headerVerticalPadding: $headerVerticalPadding - 15px;
