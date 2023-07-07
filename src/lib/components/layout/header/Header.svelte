@@ -1,6 +1,9 @@
+<script lang="ts">
+	import { headerHeight } from '$stores/layout/headerHeight';
 	import HeaderLink from './HeaderLink.svelte';
 </script>
 
+<header bind:offsetHeight={$headerHeight}>
 	<nav>
 		<ul>
 			<li>
@@ -24,6 +27,10 @@
 		min-height: 51px;
 		height: 6.2vh;
 		max-height: 50vh;
+
+		position: fixed;
+		top: 0px;
+		left: 0px;
 
 		padding: 0px $headerVerticalPadding;
 

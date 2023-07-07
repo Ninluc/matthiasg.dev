@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { headerHeight } from '$stores/layout/headerHeight';
 	import FooterIcon from './FooterIcon.svelte';
 
 	const icons = {
@@ -8,6 +9,7 @@
 	const iconsFolder: string = './footerIcons/';
 </script>
 
+<footer style="--headerHeight: {$headerHeight}px;">
 	<section class="icons-container">
 		{#each Object.entries(icons) as [icon, attr]}
 			<FooterIcon imgPath={iconsFolder + icon} alt={attr.alt} href={attr.href} />
@@ -18,6 +20,7 @@
 
 <style lang="scss">
 	footer {
+		height: calc(100dvh - var(--headerHeight));
 
 		display: flex;
 		flex-direction: column;
