@@ -1,4 +1,6 @@
 {
 	"workbench.editor.labelFormat": "short",
-	"explorer.compactFolders": false
+	"explorer.compactFolders": false,
+	"editor.formatOnSave": true,
+	"prettier.configPath": ".prettierrc"
 }
