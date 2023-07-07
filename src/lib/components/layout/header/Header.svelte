@@ -76,4 +76,28 @@
 			}
 		}
 	}
+
+	@media only screen and (max-width: $screen-xsmall) {
+		$headerVerticalPadding: $headerVerticalPadding - 40px;
+		header {
+			padding: 0px $headerVerticalPadding;
+			nav {
+				ul {
+					column-gap: $headerVerticalPadding;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: $screen-xxsmall) {
+		$headerVerticalPadding: $headerVerticalPadding - 50px;
+		header {
+			padding: 0px $headerVerticalPadding;
+			nav {
+				ul {
+					column-gap: $headerVerticalPadding;
+				}
+			}
+		}
+	}
 </style>
