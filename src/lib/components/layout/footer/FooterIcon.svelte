@@ -5,12 +5,9 @@
 	export let alt: string = '';
 	export let href: string = '/';
 
-	const sleep = (ms: number) => new Promise((f) => setTimeout(f, ms));
-
 	let Thing: any;
 
 	onMount(async () => {
-		await sleep(1000); // simulate network delay
 		Thing = (await import(/* @vite-ignore */ imgPath)).default;
 	});
 </script>
