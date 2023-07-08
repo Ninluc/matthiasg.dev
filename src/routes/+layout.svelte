@@ -2,7 +2,7 @@
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
 
-	import { headerHeight } from '$lib/stores/layout/headerHeight';
+	// import { headerHeight } from '$lib/stores/layout/headerHeight';
 
 	import '../app.scss';
 
@@ -13,7 +13,7 @@
 
 <Header />
 
-<main style="{devStyle} --headerHeight: {$headerHeight}px;">
+<!-- <main style="{devStyle} --headerHeight: {$headerHeight}px;"> -->
 	<slot />
 </main>
 
@@ -21,6 +21,7 @@
 
 <style lang="scss">
 	main {
-		padding-top: var(--headerHeight);
+		// padding-top: var(--headerHeight);
+		padding-top: clamp(51px, 2vh, 50vh);
 	}
 </style>

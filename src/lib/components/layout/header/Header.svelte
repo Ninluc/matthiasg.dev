@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { headerHeight } from '$stores/layout/headerHeight';
+	// import { headerHeight } from '$stores/layout/headerHeight';
 	import HeaderLink from './HeaderLink.svelte';
 </script>
 
-<header bind:offsetHeight={$headerHeight}>
+<!-- <header bind:offsetHeight={$headerHeight}> -->
+<header>
 	<nav>
 		<ul>
 			<li>
@@ -39,6 +40,8 @@
 		align-items: center;
 
 		background-color: $color-completelyblack;
+
+		z-index: 100;
 
 		nav {
 			flex: 1;
