@@ -18,3 +18,18 @@ body :is(*, *:before, *:after) {
 body {
 	background-color: $color-surface;
 }
+
+
+
+/* Other */
+// Visually hidden
+// source : https://svelte.dev/repl/c862d964d48d473ca63ab91709a0a5a0?version=3.23.2
+.visually-hidden {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
