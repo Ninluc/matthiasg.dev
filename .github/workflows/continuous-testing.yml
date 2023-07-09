@@ -24,9 +24,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
-      - name: Install playwright
+
+      - name: Install playwright fully
         run: npx playwright install
 
       - name: Run tests
-        run: npm run test:integration
+        run: npm run test
