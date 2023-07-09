@@ -104,6 +104,9 @@ $font-color-on-error: $font-color-base;
 $font-color-on-surface: $font-color-base;
 
 /* =~= Transition  =~= */
+/* NOTE: There are multiple instances where these variable are hardcoded in js 
+because I can't find a way to get scss variable in js. So if you change any of
+these, make sure to chnage it in the js svelte/js files too */
 $transition-time-small: 0.15s;
 $transition-time-medium: 0.3s;
 $transition-time-long: 0.5s;
