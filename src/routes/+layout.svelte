@@ -8,24 +8,22 @@
 	import '../app.scss';
 
 	import { pageOrder } from '$stores/layout/pageOrder';
+	import { direction } from '$stores/layout/pageTransitionDirection';
 	import { dev } from '$app/environment';
-	import { page } from '$app/stores';
 	import { beforeNavigate } from '$app/navigation';
-	import { beforeUpdate } from 'svelte';
 
 	export let data;
 
 	/** Old pathname, changed before changing page */
 	let oldPathname: string;
-	beforeUpdate(() => {
+	beforeNavigate(() => {
 		oldPathname = data.pathname;
 	});
 
 	const devStyle = dev ? 'color:#b5b;' : '';
 
 	// Transition direction
-	let direction: 'left' | 'right';
-	$: direction = $pageOrder[data.pathname] > $pageOrder[oldPathname] ? 'left' : 'right';
+	$: $direction = $pageOrder[data.pathname] > $pageOrder[oldPathname] ? 'left' : 'right';
 </script>
 
 <Header />
@@ -33,7 +31,8 @@
 <!-- <main style="{devStyle} --headerHeight: {$headerHeight}px;"> -->
 <main style={devStyle}>
 	{#key data.pathname}
-		<PageTransition {direction}>
+		<!-- From theme.scss -->
+		<PageTransition duration={500}>
 			<slot />
 		</PageTransition>
 	{/key}

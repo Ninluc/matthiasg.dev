@@ -1,16 +1,16 @@
 <script lang="ts">
-	// @ts-nocheck // TODO: Add proper types, find the one that include the
-	// options parameter
-
 	import { slide } from '$components/theme/transition/slide';
+	import { direction } from '$stores/layout/pageTransitionDirection';
+	import { expoOut } from 'svelte/easing';
+	import type { EasingFunction } from 'svelte/transition';
 
-	export let direction: 'left' | 'right';
-	console.log('direction =' + direction);
+	export let duration: number = 1000;
+	export let easing: EasingFunction = expoOut;
 </script>
 
 <div
-	in:slide={{ toDirection: direction }}
-	out:slide={{ toDirection: direction === 'left' ? 'right' : 'left' }}
+	in:slide={{ duration: duration, easing: easing, toDirection: $direction }}
+	out:slide={{ duration: duration, easing: easing, toDirection: $direction }}
 >
 	<slot />
 </div>
