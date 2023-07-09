@@ -31,7 +31,7 @@ test('correct heading order', async ({ page }) => {
 		for (const heading of headings) {
 			const currentHeadingLevel = parseInt(heading.substring(1));
 
-			await expect(Math.abs(currentHeadingLevel - previousHeadingLevel) < 2);
+			expect(Math.abs(currentHeadingLevel - previousHeadingLevel) < 2);
 
 			previousHeadingLevel = currentHeadingLevel;
 		}
