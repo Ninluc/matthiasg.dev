@@ -2,9 +2,12 @@
 	import { page } from '$app/stores';
 
 	export let href: string = '/';
+
+	let isCurrentLink: boolean;
+	$: isCurrentLink = $page.url.pathname + $page.url.hash === href;
 </script>
 
-<a {href} class:currentLink={$page.url.pathname + $page.url.hash === href}><slot /></a>
+<a {href} class:currentLink={isCurrentLink} aria-current={isCurrentLink}><slot /></a>
 
 <style lang="scss">
 	a {
