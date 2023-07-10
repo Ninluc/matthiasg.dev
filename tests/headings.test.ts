@@ -19,7 +19,10 @@ test('correct heading order', async ({ page }) => {
 
 	for (const url of urlsToTest) {
 		// Navigate to the page
-		await page.goto(url);
+		await page.goto(url, {
+			timeout: 4000,
+			waitUntil: 'networkidle'
+		});
 
 		// Get all the headings on the page
 		const headings = await page.$$eval('h1, h2, h3, h4, h5, h6', (elements) =>
