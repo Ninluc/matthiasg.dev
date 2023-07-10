@@ -14,7 +14,7 @@ const config = {
 		adapter: adapter(),
 		prerender: {
 			handleMissingId: 'warn',
-			handleHttpError: 'warn' // Will fix the CI for the moment
+			handleHttpError: 'fail'
 		},
 		alias: {
 			$components: 'src/lib/components',
