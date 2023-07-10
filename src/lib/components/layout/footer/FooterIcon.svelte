@@ -1,20 +1,29 @@
 <script lang="ts">
+	import { text } from '@sveltejs/kit';
 	import { onMount } from 'svelte';
 
 	export let imgPath: string = '';
 	export let alt: string = '';
 	export let href: string = '/';
 
-	let Thing: any;
+	async function getImage(path: string): Promise<string> {
+		const res = await fetch(path);
+		const data = await res.text();
 
-	onMount(async () => {
-		Thing = (await import(/* @vite-ignore */ imgPath)).default;
-	});
+		if (res.ok) {
+			return data;
+		} else {
+			throw new Error(data);
+		}
+	}
 </script>
 
 <a {href} target="_blank" title={alt}>
-	<!-- <img src={imgPath} {alt} /> -->
-	<svelte:component this={Thing} />
+	{#await getImage(imgPath)}
+		{alt}
+	{:then img}
+		{@html img}
+	{/await}
 </a>
 
 <style lang="scss">
@@ -22,6 +31,10 @@
 		aspect-ratio: 1 / 1;
 		width: min(42px, 10vw);
 		height: min(42px, 10vw);
+
+		/* For placeholder text */
+		font: $linkmain;
+		color: $color-primary;
 
 		// position: relative;
 

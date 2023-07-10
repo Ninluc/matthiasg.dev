@@ -4,9 +4,9 @@
 	import FooterIcon from './FooterIcon.svelte';
 
 	const icons = {
-		'github-mark.svelte': { href: 'https://github.com/Ninluc', alt: 'Github' }
+		'github-mark.svg': { href: 'https://github.com/Ninluc', alt: 'Github' }
 	};
-	const iconsFolder: string = './footerIcons/';
+	const iconsFolder: string = '/img/footerIcons/';
 
 	const links: {
 		[categoryTitle: string]: {
