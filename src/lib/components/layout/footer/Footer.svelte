@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { pages, type Page } from '$stores/layout/pages';
 	import FooterLinksCategory from './FooterLinksCategory.svelte';
 	// import { headerHeight } from '$stores/layout/headerHeight';
 	import FooterIcon from './FooterIcon.svelte';
@@ -9,33 +10,22 @@
 	const iconsFolder: string = '/img/footerIcons/';
 
 	const links: {
-		[categoryTitle: string]: {
-			[title: string]: { href: string; sub?: { [subtitle: string]: string } };
-		};
+		[categoryTitle: string]: Page[];
 	} = {
-		'Pages et sections': {
-			Accueil: {
-				href: '/',
-				sub: {
-					'À propos de moi': 'me',
-					'Quelques projets': 'some-projects',
-					'Me contacter': 'contact'
-				}
-			},
-			'Tous mes projets': {
-				href: '/projects',
-				sub: {
-					'Projets personnels': 'personal',
-					'Projets scolaires': 'school',
-					'Projets professionnels': 'professional'
-				}
+		'Pages et sections': $pages,
+		'Liens intéressant': [
+			{
+				pageName: 'Dépôt de ce site (Github)',
+				path: 'https://github.com/Ninluc/matthiasg.dev',
+				title: 'Dépôt de ce site (Github)',
+				sub: [
+					{
+						subLink: 'https://github.com/Ninluc/matthiasg.dev/blob/main/README.md',
+						subTitle: 'README'
+					}
+				]
 			}
-		},
-		'Liens intéressant': {
-			'Dépôt de ce site (Github)': {
-				href: 'https://github.com/Ninluc/matthiasg.dev'
-			}
-		}
+		]
 	};
 </script>
 

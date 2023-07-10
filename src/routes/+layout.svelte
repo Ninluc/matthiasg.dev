@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { pages } from '$stores/layout/pages';
+	import { page } from '$app/stores';
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
 	import PageTransition from '$components/layout/pageTransition/PageTransition.svelte';
@@ -23,8 +25,16 @@
 	const devStyle = dev ? 'color:#b5b;' : '';
 
 	// Transition direction
-	$: $direction = $pageOrder[data.pathname] > $pageOrder[oldPathname] ? 'left' : 'right';
+	$: $direction =
+		($pageOrder[data?.pathname] ?? 0) > ($pageOrder[oldPathname] ?? 0) ? 'left' : 'right';
+
+	let currentTitle: string | undefined;
+	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;
 </script>
+
+<svelte:head>
+	<title>{currentTitle ? `${currentTitle} | matthiasg.dev` : 'matthiasg.dev'}</title>
+</svelte:head>
 
 <Header />
 

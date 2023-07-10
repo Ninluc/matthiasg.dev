@@ -1,21 +1,30 @@
 <script lang="ts">
+	import { pages, type SubLink } from '$stores/layout/pages';
 	// import { headerHeight } from '$stores/layout/headerHeight';
 	import HeaderLink from './HeaderLink.svelte';
+
+	let links: { pageName?: string; path: string; title: string; sub?: SubLink[] }[];
+	links = [
+		...$pages,
+		{
+			path: '/#contact',
+			title: 'Contact'
+		}
+	];
 </script>
 
 <!-- <header bind:offsetHeight={$headerHeight}> -->
 <header>
 	<nav>
 		<ul>
-			<li>
+			<!-- <li>
 				<HeaderLink href="/">Accueil</HeaderLink>
-			</li>
-			<li>
-				<HeaderLink href="/projects">Mes projets</HeaderLink>
-			</li>
-			<li>
-				<HeaderLink href="/#contact">Contact</HeaderLink>
-			</li>
+			</li> -->
+			{#each Object.entries(links) as [title, value]}
+				<li>
+					<HeaderLink href={value.path}>{value.title}</HeaderLink>
+				</li>
+			{/each}
 		</ul>
 	</nav>
 </header>

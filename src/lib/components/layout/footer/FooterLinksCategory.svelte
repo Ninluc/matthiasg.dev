@@ -1,8 +1,17 @@
 <script lang="ts">
 	import TextLink from '$components/theme/TextLink.svelte';
+	import type { Page, SubLink } from '$stores/layout/pages';
 
 	export let categoryTitle: string = '';
-	export let links: { [title: string]: { href: string; sub?: { [subtitle: string]: string } } };
+	export let links: Page[];
+
+	function getLinkForSub(link: Page, sub: SubLink): string {
+		if ('subId' in sub) {
+			return link.path + (link.path.endsWith('/') ? '#' : '/#') + sub.subId;
+		} else {
+			return sub.subLink;
+		}
+	}
 </script>
 
 <article>
@@ -10,17 +19,20 @@
 		<h2>{categoryTitle}</h2>
 	</header>
 	<ul>
-		{#each Object.entries(links) as [linkTitle, linkHref]}
+		{#each links as link}
 			<li>
-				<TextLink href={linkHref.href}>{linkTitle}</TextLink>
-				{#if linkHref.sub}
-					<ul class="subLinks">
-						{#each Object.entries(linkHref.sub) as [subLinkTitle, subLinkHref]}
+				<TextLink href={link.path} target={link.path.startsWith('http') ? '_blank' : '_self'}
+					>{link.title}</TextLink
+				>
+				{#if link.sub}
+					<ul class="sub-links">
+						{#each link.sub as subLink}
 							<li>
 								<!-- If the link already ends with /, only append # -->
 								<TextLink
-									href={linkHref.href + (linkHref.href.endsWith('/') ? '#' : '/#') + subLinkHref}
-									target="_blank">{subLinkTitle}</TextLink
+									href={getLinkForSub(link, subLink)}
+									target={link.path.startsWith('http') ? '_blank' : '_self'}
+									>{subLink.subTitle}</TextLink
 								>
 							</li>
 						{/each}
@@ -69,7 +81,7 @@
 					margin-bottom: 0.5rem;
 				}
 
-				ul.subLinks {
+				ul.sub-links {
 					margin: $gap-small 0 $gap-medium $gap-big;
 
 					li {
