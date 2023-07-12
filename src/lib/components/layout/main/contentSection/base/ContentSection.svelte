@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onDestroy, onMount } from 'svelte';
 
-	export let intersectionCallback: (target: Element) => void;
+	export let intersectionCallback: (target: Element) => void = () => {};
 
 	// Function to handle intersection changes
 	const handleIntersection = (entries: IntersectionObserverEntry[]) => {
@@ -15,11 +15,13 @@
 	let observer: IntersectionObserver;
 	let component: HTMLElement;
 	onMount(() => {
+		let rootMargin = '-3%';
+
 		// Create an Intersection Observer when the component is mounted
 		observer = new IntersectionObserver(handleIntersection, {
 			root: null, // viewport
-			rootMargin: '-1.5% -1.5% -1.5% -1.5%', // margin around the root (viewport)
-			threshold: 0.5 // % of the element to be in the viewport
+			rootMargin: `${rootMargin} ${rootMargin} ${rootMargin} ${rootMargin}`, // margin around the root (viewport)
+			threshold: 0.2 // % of the element to be in the viewport
 		});
 
 		// Observe the component
@@ -39,3 +41,15 @@
 <section class="content-section" bind:this={component}>
 	<slot />
 </section>
+
+<style lang="scss">
+	section {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > :global(*) {
+			max-width: min(calc(100% - $gap-big), 28.5cm);
+		}
+	}
+</style>

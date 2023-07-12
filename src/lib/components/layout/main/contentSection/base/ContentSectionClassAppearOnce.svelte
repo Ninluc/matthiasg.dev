@@ -6,7 +6,6 @@
 
 <ContentSectionFireOnce
 	intersectionCallback={(el) => {
-		console.log('Intersection callback fired!');
 		el.classList.add('content-section__appear');
 		intersectionCallback(el);
 	}}
