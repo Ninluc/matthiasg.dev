@@ -1,29 +1,18 @@
 <script>
 	import BigTextSection from '$components/layout/main/contentSection/BigTextSection.svelte';
+	import ContentAfterBigTextSection from '$components/layout/main/contentSection/ContentAfterBigTextSection.svelte';
+	import ContentSection from '$components/layout/main/contentSection/base/ContentSection.svelte';
+	import HelloHeadsSection from '$components/layout/main/contentSection/helloHeads/HelloHeadsSection.svelte';
 </script>
 
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
-<BigTextSection>Test</BigTextSection>
+<HelloHeadsSection />
+
+<BigTextSection>Je m'appelle</BigTextSection>
+<ContentAfterBigTextSection>Matthias Guillitte</ContentAfterBigTextSection>
+<BigTextSection>Et je fais des trucs...</BigTextSection>
+<ContentAfterBigTextSection>Mes travaux</ContentAfterBigTextSection>
+<BigTextSection>Vous voulez me contacter ?</BigTextSection>
+<ContentAfterBigTextSection>Formulaire</ContentAfterBigTextSection>
 
 <style lang="scss">
-	:global(section.content-section) {
-		height: 90vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		& :global(> p) {
-			font-size: 5rem;
-			font-weight: 700;
-			color: #fff;
-			text-align: center;
-		}
-	}
 </style>

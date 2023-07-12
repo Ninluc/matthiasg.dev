@@ -46,7 +46,7 @@
 <style lang="scss">
 	footer {
 		// height: calc(100dvh - var(--headerHeight));
-		height: calc(100dvh - clamp(51px, 2vh, 50vh));
+		height: calc(100vh - clamp(51px, 2vh, 50vh));
 
 		display: flex;
 		flex-direction: column;

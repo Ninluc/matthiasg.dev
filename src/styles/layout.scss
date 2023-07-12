@@ -1,0 +1,54 @@
+@use './theme.scss' as th;
+@use './font.scss' as f;
+
+// HELLO BIG HEADS
+main>div>section.content-section:first-child {
+    height: calc(100vh - clamp(51px, 2vh, 50vh));
+
+    position: relative;
+
+    background: linear-gradient(180deg, th.$color-completelyblack, th.$color-surface, th.$color-surface);
+
+    /* div.canva-container {
+        
+        // left: 0;
+
+        width: 100%;
+        height: 100%;
+        max-width: 90vw; */
+
+    &>canvas {
+        max-width: 100% !important;
+        // width: 100% !important;
+        // height: 100% !important;
+        // height: fit-content;
+
+        position: absolute;
+        top: 0;
+
+
+        pointer-events: none;
+        touch-action: none;
+    }
+
+    // }
+
+    p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        font: f.$title;
+        color: th.$font-color-on-surface;
+
+        text-transform: uppercase;
+        text-shadow: 0 0 10px th.$color-surface;
+
+        transform: translate(-50%, -50%);
+    }
+}
+
+// DEV
+.tp-dfwv {
+    transform: translateY(100px);
+}
