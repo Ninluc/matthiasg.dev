@@ -30,7 +30,7 @@
 	a {
 		aspect-ratio: 1 / 1;
 		width: min(42px, 10vw);
-		height: min(42px, 10vw);
+		// height: min(42px, 10vw);
 
 		/* For placeholder text */
 		font: $linkmain;
