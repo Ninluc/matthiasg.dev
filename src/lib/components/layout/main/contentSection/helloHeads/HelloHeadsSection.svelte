@@ -8,6 +8,7 @@
 	import { browser, dev } from '$app/environment';
 	import { cubicOut } from 'svelte/easing';
 	import { pane } from './pane';
+	import BigText from '../BigText.svelte';
 
 	const singleHeadThreshold = 600;
 
@@ -197,7 +198,7 @@
 		</Thretle.Canvas>
 	<!-- </div> -->
 
-	<p>Hello</p>
+	<BigText>Hello</BigText>
 </ContentSectionClassAppearOnce>
 
 <style lang="scss">
