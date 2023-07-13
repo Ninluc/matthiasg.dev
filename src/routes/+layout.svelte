@@ -1,18 +1,19 @@
 <script lang="ts">
-	import { pages } from '$stores/layout/pages';
-	import { page } from '$app/stores';
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
 	import PageTransition from '$components/layout/pageTransition/PageTransition.svelte';
+	import LoadingScreen from '$components/layout/loading/LoadingScreen.svelte';
 
-	// import { headerHeight } from '$lib/stores/layout/headerHeight';
-
-	import '../app.scss';
-
+	import { pages } from '$stores/layout/pages';
 	import { pageOrder } from '$stores/layout/pageOrder';
 	import { direction } from '$stores/layout/pageTransitionDirection';
-	import { dev } from '$app/environment';
+	import { loadingFinished } from '$stores/layout/loadingFinished';
+
+	import { browser, dev } from '$app/environment';
 	import { beforeNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+
+	import '../app.scss';
 
 	export let data;
 
@@ -30,6 +31,17 @@
 
 	let currentTitle: string | undefined;
 	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;
+
+	// Do we need loading animation ?
+	let activateLoadingScreen: boolean = true;
+	activateLoadingScreen = oldPathname === undefined && data.pathname == '/';
+
+	if (!activateLoadingScreen || !browser) {
+		loadingFinished.set(true);
+	}
+
+	$: console.log('loading has finished : ' + $loadingFinished);
+	$: console.log('Is the loading screen activated ? : ' + activateLoadingScreen);
 </script>
 
 <svelte:head>
@@ -37,6 +49,10 @@
 </svelte:head>
 
 <Header />
+
+{#if !$loadingFinished && activateLoadingScreen}
+	<LoadingScreen />
+{/if}
 
 <!-- <main style="{devStyle} --headerHeight: {$headerHeight}px;"> -->
 <main style={devStyle}>

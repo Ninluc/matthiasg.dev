@@ -7,6 +7,7 @@
 </script>
 
 <ContentSection
+	class={$$restProps.class || ''}
 	intersectionCallback={(el) => {
 		if (!fired) {
 			intersectionCallback(el);

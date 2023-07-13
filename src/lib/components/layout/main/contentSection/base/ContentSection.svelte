@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { onDestroy, onMount } from 'svelte';
 
 	export let intersectionCallback: (target: Element) => void = () => {};
@@ -30,6 +31,11 @@
 		}
 	});
 
+	// No js support
+	if (!browser) {
+		intersectionCallback(component);
+	}
+
 	// Cleanup the observer when the component is unmounted
 	onDestroy(() => {
 		if (observer) {
@@ -38,7 +44,7 @@
 	});
 </script>
 
-<section class="content-section" bind:this={component}>
+<section class="content-section {$$restProps.class || ''}" bind:this={component}>
 	<slot />
 </section>
 
