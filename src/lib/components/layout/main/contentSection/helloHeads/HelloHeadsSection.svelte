@@ -1,9 +1,8 @@
 <script lang="ts">
-	import * as Thretle from '@threlte/core';
+	import * as Threlte from '@threlte/core';
 	import * as ThretleExtras from '@threlte/extras';
 	import * as Three from 'three';
 	import * as Utils from 'three/src/math/MathUtils';
-	import ContentSectionClassAppearOnce from '../base/ContentSectionClassAppearOnce.svelte';
 	import { onMount } from 'svelte';
 	import { browser, dev } from '$app/environment';
 	import { cubicOut } from 'svelte/easing';
@@ -13,6 +12,7 @@
 	import { animationFinished } from '$stores/layout/animationFinished';
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 	import ContentSection from '../base/ContentSection.svelte';
+	import { tweened, type Tweened } from 'svelte/motion';
 
 	const singleHeadThreshold = 600;
 
@@ -20,6 +20,7 @@
 	let pageHeight: number = 0;
 	let containerHeight: number = 0;
 	let containerWidth: number = 0;
+	let scrollY: number = 0;
 
 	let componentIsMounted: boolean = false;
 
@@ -63,13 +64,13 @@
 	$: head = {
 		position: { x: -getHeadDistanceByWidth(pageWidth), y: -4.3, z: 0 },
 		rotation: { x: 0, y: -0.3, z: 0 },
-		scale: 0.04
+		scale: 1
 	};
 
 	$: head2 = {
 		position: { x: getHeadDistanceByWidth(pageWidth), y: -4.3, z: 0 },
 		rotation: { x: 0, y: 0.3, z: 0 },
-		scale: { x: -0.04, y: 0.04, z: 0.04 }
+		scale: { x: -1, y: 1, z: 1 }
 	};
 
 	onMount(() => {
@@ -112,7 +113,8 @@
 	function entryAnimation(
 		time: number,
 		fromHeads: [HeadsTransition, HeadsTransition],
-		toHeads: [HeadsTransition, HeadsTransition]
+		toHeads: [HeadsTransition, HeadsTransition],
+		timeStamp: number
 	) {
 		if (timeStart === undefined) {
 			timeStart = Date.now();
@@ -136,8 +138,8 @@
 			return;
 		}
 
-		return requestAnimationFrame(() => {
-			entryAnimation(time, fromHeads, toHeads);
+		return requestAnimationFrame((timeStamp) => {
+			entryAnimation(time, fromHeads, toHeads, timeStamp);
 		});
 	}
 
@@ -148,34 +150,70 @@
 			headFrom = {
 				position: { x: -70, y: -4.3, z: -30 },
 				rotation: { x: 0, y: 230 * Utils.DEG2RAD, z: 0 },
-				scale: { x: 0.04, y: 0.04, z: 0.04 }
+				scale: { x: 1, y: 1, z: 1 }
 			};
 			headTo = {
 				position: { x: -getHeadDistanceByWidth(pageWidth), y: -4.3, z: 0 },
 				rotation: { x: 0, y: -0.3, z: 0 },
-				scale: { x: 0.04, y: 0.04, z: 0.04 }
+				scale: { x: 1, y: 1, z: 1 }
 			};
 			headFrom2 = {
 				position: { x: -headFrom.position.x, y: -4.3, z: 0 },
 				rotation: { x: 0, y: -headFrom.rotation.y, z: 0 },
-				scale: { x: -0.04, y: 0.04, z: 0.04 }
+				scale: { x: -1, y: 1, z: 1 }
 			};
 			headTo2 = {
 				position: { x: getHeadDistanceByWidth(pageWidth), y: -4.3, z: 0 },
 				rotation: { x: 0, y: -headTo.rotation.y, z: 0 },
-				scale: { x: -0.04, y: 0.04, z: 0.04 }
+				scale: { x: -1, y: 1, z: 1 }
 			};
 			console.log('playin animation');
-			entryAnimation(100 * 15, [headFrom, headFrom2], [headTo, headTo2]);
+			requestAnimationFrame((timeStamp) => {
+				entryAnimation(100 * 15, [headFrom, headFrom2], [headTo, headTo2], timeStamp);
+			});
+		}
+	}
+
+	// Update camera angle
+	let factor: number;
+	const cameraFrom = {
+		position: { x: 0, y: 0, z: 31 },
+		rotation: { x: 0, y: 0, z: 0 },
+		fov: 50
+	};
+	const cameraTo = {
+		position: { x: 0, y: -30, z: 0 }
+	};
+	let tweenedScrollY: Tweened<number>;
+	tweenedScrollY = tweened(0, {
+		duration: 900,
+		easing: cubicOut
+	});
+	const scrollBegin = 40;
+	$: $tweenedScrollY = $animationFinished && scrollY > scrollBegin ? scrollY : 0;
+	$: {
+		if ($animationFinished && $tweenedScrollY) {
+			factor = $tweenedScrollY / pageHeight;
+			if (factor <= 1) {
+				camera.position.y = Utils.lerp(cameraFrom.position.y, cameraTo.position.y, factor);
+				camera.rotation.x =
+					(90 -
+						(90 -
+							Math.atan(Math.abs(camera.position.y) / Math.abs(camera.position.z)) *
+								Utils.RAD2DEG)) *
+					Utils.DEG2RAD;
+
+				console.log(90 - (90 - Math.abs(camera.position.y) / Math.abs(camera.position.z)));
+			}
 		}
 	}
 </script>
 
-<svelte:window bind:innerWidth={pageWidth} bind:innerHeight={pageHeight} />
+<svelte:window bind:innerWidth={pageWidth} bind:innerHeight={pageHeight} bind:scrollY />
 
 <ContentSection class={$loadingFinished ? 'content-section__appear' : ''}>
 	<!-- <div class="canva-container" bind:clientHeight={containerHeight} bind:clientWidth={containerWidth}>  -->
-	<Thretle.Canvas
+	<Threlte.Canvas
 		rendererParameters={{ antialias: true }}
 		size={{ width: pageWidth, height: pageHeight }}
 	>
@@ -187,16 +225,16 @@
 			{/if} -->
 
 		<!-- Camera -->
-		<Thretle.PerspectiveCamera {...camera} lookAt={undefined}>
+		<Threlte.PerspectiveCamera {...camera} lookAt={undefined}>
 			<!-- Controls -->
-			<Thretle.OrbitControls enabled={false} />
-		</Thretle.PerspectiveCamera>
+			<Threlte.OrbitControls enabled={false} />
+		</Threlte.PerspectiveCamera>
 
 		<!-- Lights the scene equally -->
-		<Thretle.AmbientLight {...ambientLight} />
+		<Threlte.AmbientLight {...ambientLight} />
 
 		<!-- Light that casts a shadow -->
-		<Thretle.DirectionalLight {...directionalLight} bind:light={directionalLightObject} />
+		<Threlte.DirectionalLight {...directionalLight} bind:light={directionalLightObject} />
 
 		<!-- 
 			without draco : 6.83MB / 2.29s | 5.59 MB (5.59 MB size) / 622ms
@@ -204,11 +242,16 @@
 			→ Size doesn't change, but loading time is divided by 2.5
 		 -->
 		<!-- Head -->
+		<!-- <Threlte.Mesh
+			{...head}
+			geometry={new Three.SphereGeometry(4, 64, 64)}
+			material={new Three.MeshStandardMaterial({ color: 'white' })}
+		/> -->
 		<ThretleExtras.GLTF url="assets/3d/davidHead.glb" useDraco="true" {...head} />
 		{#if pageWidth > singleHeadThreshold}
 			<ThretleExtras.GLTF url="assets/3d/davidHead.glb" {...head2} />
 		{/if}
-	</Thretle.Canvas>
+	</Threlte.Canvas>
 	<!-- </div> -->
 
 	<BigText>Hello</BigText>
