@@ -10,12 +10,7 @@
 	$: isCurrentLink = $page.url.pathname + $page.url.hash === href;
 </script>
 
-<a
-	{href}
-	class={($loadingFinished && $animationFinished) || !browser ? '' : 'disabled'}
-	class:currentLink={isCurrentLink}
-	aria-current={isCurrentLink}><slot /></a
->
+<a {href} class:currentLink={isCurrentLink} aria-current={isCurrentLink}><slot /></a>
 
 <style lang="scss">
 	a {
@@ -45,10 +40,6 @@
 
 		&.currentLink {
 			text-decoration-color: $font-color-on-surface;
-		}
-
-		&.disabled {
-			pointer-events: none;
 		}
 	}
 </style>
