@@ -14,11 +14,12 @@
 	import { page } from '$app/stores';
 
 	import '../app.scss';
+	import { beforeUpdate } from 'svelte';
 
 	export let data;
 
-	/** Old pathname, changed before changing page */
 	let oldPathname: string;
+	/** Old pathname, changed before changing page */
 	beforeNavigate(() => {
 		oldPathname = data.pathname;
 	});
@@ -32,16 +33,15 @@
 	let currentTitle: string | undefined;
 	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;
 
-	// Do we need loading animation ?
 	let activateLoadingScreen: boolean = true;
-	activateLoadingScreen = oldPathname === undefined && data.pathname == '/';
+	beforeUpdate(() => {
+		// Do we need loading animation ?
+		activateLoadingScreen = oldPathname === undefined && data.pathname == '/';
 
-	if (!activateLoadingScreen || !browser) {
-		loadingFinished.set(true);
-	}
-
-	$: console.log('loading has finished : ' + $loadingFinished);
-	$: console.log('Is the loading screen activated ? : ' + activateLoadingScreen);
+		if (!activateLoadingScreen || !browser) {
+			loadingFinished.set(true);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -77,6 +77,7 @@
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr;
+
 		& > :global(*) {
 			grid-row: 1;
 			grid-column: 1;
