@@ -33,10 +33,10 @@
 	let currentTitle: string | undefined;
 	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;
 
-	let activateLoadingScreen: boolean = true;
+	let activateLoadingScreen: boolean = !dev;
 	beforeUpdate(() => {
 		// Do we need loading animation ?
-		activateLoadingScreen = oldPathname === undefined && data.pathname == '/';
+		activateLoadingScreen = oldPathname === undefined && data.pathname == '/' && !dev;
 
 		if (!activateLoadingScreen || !browser) {
 			loadingFinished.set(true);
