@@ -202,8 +202,6 @@
 							Math.atan(Math.abs(camera.position.y) / Math.abs(camera.position.z)) *
 								Utils.RAD2DEG)) *
 					Utils.DEG2RAD;
-
-				console.log(90 - (90 - Math.abs(camera.position.y) / Math.abs(camera.position.z)));
 			}
 		}
 	}
