@@ -1,10 +1,28 @@
 <script lang="ts">
+	import { browser } from '$app/environment';
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 	import * as ThretleExtras from '@threlte/extras';
+	import { onMount } from 'svelte';
 	import { cubicOut } from 'svelte/easing';
 	import { tweened, type Tweened } from 'svelte/motion';
 
 	const { progress } = ThretleExtras.useProgress();
+
+	onMount(() => {
+		if (browser) {
+			if (window.scrollY > 0) {
+				setTimeout(() => {
+					console.log(window.scrollY);
+					// document.documentElement.scrollTo(0, 0);
+					document.documentElement.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+					console.log(window.scrollY);
+				}, 1);
+			}
+		}
+	});
 
 	let percentLoaded: Tweened<number>;
 	$: percentLoaded = tweened(0, {
