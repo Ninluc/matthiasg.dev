@@ -1,8 +1,14 @@
-<script>
+<script lang="ts">
 	import ContentSectionClassAppearOnce from './base/ContentSectionClassAppearOnce.svelte';
+
+	export let intersectionCallback: (target: Element) => void = () => {};
 </script>
 
-<ContentSectionClassAppearOnce>
+<ContentSectionClassAppearOnce
+	intersectionCallback={(el) => {
+		intersectionCallback(el);
+	}}
+>
 	<slot />
 </ContentSectionClassAppearOnce>
 

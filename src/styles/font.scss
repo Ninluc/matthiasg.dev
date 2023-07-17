@@ -41,7 +41,7 @@ $headerlink: $style-headerlink $weight-headerlink list.slash($size-headerlink, $
 /* -- Others -- */
 /* Loading */
 $family-loading: 'Ubuntu Mono';
-$size-loading: 0.8125em;
+$size-loading: 0.8125rem;
 $weight-loading: 400;
 $style-loading: normal;
 $lineheight-loading: 1.2rem;
@@ -51,25 +51,25 @@ $loading: $style-loading $weight-loading list.slash($size-loading, $lineheight-l
 /* > Profiler */
 /* Code */
 $family-profiler-code: 'CPMono_v07';
-$size-profiler-code: 1.5em;
+$size-profiler-code: 1.5rem;
 $weight-profiler-code: 300;
 $style-profiler-code: normal;
-$lineheight-profiler-code: 1.2rem;
+$lineheight-profiler-code: 1.466em;
 $letterspacing-profiler-code: 0rem;
 $profiler-code: $style-profiler-code $weight-profiler-code list.slash($size-profiler-code, $lineheight-profiler-code) $family-profiler-code;
 /* Main */
 $family-profiler-main: 'Helvetica Neue';
-$size-profiler-main: 2.8125em;
+$size-profiler-main: 2.8125rem;
 $weight-profiler-main: 500;
 $style-profiler-main: normal;
-$lineheight-profiler-main: 1.3rem;
-$letterspacing-profiler-main: -1.8rem; // TODO : CHANGEME
+$lineheight-profiler-main: 0.844em;
+$letterspacing-profiler-main: -0.1rem;
 $profiler-main: $style-profiler-main $weight-profiler-main list.slash($size-profiler-main, $lineheight-profiler-main) $family-profiler-main;
 /* Secondary */
 $family-profiler-secondary: $family-profiler-main;
-$size-profiler-secondary: 2.125em;
+$size-profiler-secondary: 2.125rem;
 $weight-profiler-secondary: 300;
 $style-profiler-secondary: normal;
-$lineheight-profiler-secondary: 1.2rem;
+$lineheight-profiler-secondary: 1.265em;
 $letterspacing-profiler-secondary: 0rem;
 $profiler-secondary: $style-profiler-secondary $weight-profiler-secondary list.slash($size-profiler-secondary, $lineheight-profiler-secondary) $family-profiler-secondary;
