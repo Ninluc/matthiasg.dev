@@ -3,6 +3,7 @@
 	import { write } from '$components/theme/transition/write';
 	import { getStringFromChars } from '$lib/scripts/stringsBuilder';
 	import { charTyping } from '$components/theme/transition/charTyping';
+	import { onMount } from 'svelte';
 
 	let animationLaunched = false;
 
@@ -13,6 +14,22 @@
 
 	const mainAstractCharacters = '$X*x%/-_:';
 	const typingSpeed = 2;
+
+	function getRandomFact(): Promise<string> {
+		return fetch('/api/randomFact')
+			.then((res) => res.json())
+			.then((res) => {
+				console.log('got ' + res);
+				return res;
+			});
+	}
+
+	let randomFact: string;
+	onMount(async () => {
+		randomFact = await getRandomFact();
+	});
+
+	const age = new Date().getFullYear() - 2003;
 </script>
 
 <ContentAfterBigTextSection
@@ -37,8 +54,8 @@
 			{/if}
 		</div>
 
-		<div class="white-text">
-			{#if animationLaunched}
+		{#if randomFact !== undefined && animationLaunched}
+			<div class="white-text">
 				<div
 					in:charTyping={{
 						speed: typingSpeed,
@@ -57,10 +74,10 @@
 						trailingRdCharacterMaxNumber: 3
 					}}
 				>
-					Bought more than 500 € worth of gay porn
+					{@html randomFact}
 				</div>
-			{/if}
-		</div>
+			</div>
+		{/if}
 
 		<div class="black-text">
 			{#if animationLaunched}
@@ -72,7 +89,7 @@
 						trailingRdCharacterMaxNumber: 3
 					}}
 				>
-					Âge: 20 ans
+					Âge: {age} ans
 				</div>
 				<div
 					in:charTyping={{
@@ -160,7 +177,7 @@
 			}
 		}
 		.black-text {
-			padding: $gap-medium 7% 0 ($gap-medium - 5);
+			padding: $gap-medium 20% 0 ($gap-medium - 5);
 
 			justify-content: flex-start;
 			gap: 4px;
