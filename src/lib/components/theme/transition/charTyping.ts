@@ -6,8 +6,12 @@ export function charTyping(
 ) {
 	const valid = node.childNodes.length === 1 && node.childNodes[0]?.nodeType === Node.TEXT_NODE;
 
+	// Unify text node and element node
 	if (!valid) {
-		throw new Error(`This transition only works on elements with a single text node child`);
+		const wrapper = document.createElement('span');
+		wrapper.innerHTML = node.innerHTML;
+		node.innerHTML = '';
+		node.appendChild(wrapper);
 	}
 
 	const text: string = node.textContent || '';
