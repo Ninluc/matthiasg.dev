@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { load } from '../../routes/+layout';
+import { load } from '../../routes/(app)/+layout';
 
 function testLoad(url: any, expected: any) {
 	const result = load({ url });
