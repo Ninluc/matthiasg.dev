@@ -13,7 +13,7 @@
 	let randomAbstractCodeText = getStringFromChars(abstractCodeText, 2, 8);
 
 	const mainAstractCharacters = '$X*x%/-_:';
-	const typingSpeed = 2;
+	const typingSpeed = 3;
 
 	function getRandomFact(): Promise<string> {
 		return fetch('/api/randomFact')
