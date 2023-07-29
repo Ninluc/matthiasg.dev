@@ -1,11 +1,27 @@
 import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import { mdsvex, escapeSvelte } from 'mdsvex';
+import shiki from 'shiki';
+
+/** @type {import('mdsvex').MdsvexOptions} */
+const mdsvexOptions = {
+	extensions: ['.md'],
+	highlight: {
+		highlighter: async (code, lang = 'text') => {
+			const highlighter = await shiki.getHighlighter({ theme: 'material-theme-palenight' });
+			const result = escapeSvelte(highlighter.codeToHtml(code, { lang }));
+			return `{@html \`${result}\`}`;
+		}
+	}
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
 	// for more information about preprocessors
-	preprocess: [vitePreprocess({})],
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
+
+	extensions: ['.svelte', '.md'],
 
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
