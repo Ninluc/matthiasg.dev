@@ -19,7 +19,6 @@
 		return fetch('/api/randomFact')
 			.then((res) => res.json())
 			.then((res) => {
-				console.log('got ' + res);
 				return res;
 			});
 	}
