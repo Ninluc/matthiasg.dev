@@ -5,7 +5,6 @@
 	import LoadingScreen from '$components/layout/loading/LoadingScreen.svelte';
 
 	import { pages } from '$stores/layout/pages';
-	import { pageOrder } from '$stores/layout/pageOrder';
 	import { direction } from '$stores/layout/pageTransitionDirection';
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 
@@ -14,6 +13,7 @@
 
 	import '../../app.scss';
 	import { beforeUpdate } from 'svelte';
+	import { pageToIsBefore } from '$lib/scripts/layout/pageToIsBefore';
 
 	export let data;
 
@@ -26,8 +26,7 @@
 	const devStyle = dev ? 'color:#b5b;' : '';
 
 	// Transition direction
-	$: $direction =
-		($pageOrder[data?.pathname] ?? 0) > ($pageOrder[oldPathname] ?? 0) ? 'left' : 'right';
+	$: $direction = pageToIsBefore(data?.pathname, oldPathname ?? '') ? 'right' : 'left';
 
 	let currentTitle: string | undefined;
 	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;

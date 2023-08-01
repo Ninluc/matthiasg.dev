@@ -1,6 +1,6 @@
-import { writable, type Writable } from 'svelte/store';
-
-export const pageOrder: Writable<{ [href: string]: number }> = writable({
+/* eslint-disable no-useless-escape */
+export const PAGE_ORDER: { [path: string]: number } = {
 	'/': 0,
-	'/projects': 1
-});
+	'/projects': 1,
+	'/projects/[^/]*': 2
+};
