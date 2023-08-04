@@ -1,8 +1,9 @@
 import { sveltekit } from '@sveltejs/kit/vite';
+import { imagetools } from '@zerodevx/svelte-img/vite'
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-	plugins: [sveltekit()],
+	plugins: [sveltekit(), imagetools()],
 
 	ssr: {
 		noExternal: ['three', 'troika-three-text']
