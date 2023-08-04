@@ -11,21 +11,26 @@ export const GET: RequestHandler = async (event) => {
 
 // APIS
 // CodeTime
-function getCodeTime(href: string) {
-	return fetch(href)
-		.then((res) => res.json())
-		.then((data) => {
-			return data.message;
-		});
+async function getCodeTime(href: string) {
+	try {
+		const response = await fetch(href); // Replace with the actual API URL
+		if (!response.ok) {
+			throw new Error('Failed to fetch data');
+		}
+		const data = await response.json();
+		return data.message;
+	} catch {
+		return undefined;
+	}
 }
 
-const codeTimeHref = 'https://api.codetime.dev/shield?id=16877&in=0';
+const codeTimeHref = 'https://api.codetime.devd/shield?id=16877&in=0';
 const thisProjectCodeTimeHref =
-	'https://api.codetime.dev/shield?id=16877&project=matthiasg.dev&in=0';
+	'https://api.codetime.devd/shield?id=16877&project=matthiasg.dev&in=0';
 
 const facts = [
 	"A appris l'HTML sur <a target='_blank' href='https://www.codecademy.com/learn/learn-html'>codecademy</a> en 2013",
 	"A appris le CSS sur <a target='_blank' href='https://www.codecademy.com/learn/learn-css'>codecademy</a> en 2013",
-	`${await getCodeTime(codeTimeHref)} de code depuis le 1er janvier 2023`,
-	`${await getCodeTime(thisProjectCodeTimeHref)} passées sur ce projet`
+	`${(await getCodeTime(codeTimeHref)) ?? 'Plus de 1000hr'} de code depuis le 1er janvier 2023`,
+	`${(await getCodeTime(thisProjectCodeTimeHref)) ?? 'Plus de 50hr'} passées sur ce projet`
 ];
