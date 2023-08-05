@@ -4,6 +4,8 @@
 
 	export let intersectionCallback: (target: Element) => void = () => {};
 
+	export let id: string = '';
+
 	// Function to handle intersection changes
 	const handleIntersection = (entries: IntersectionObserverEntry[]) => {
 		const entry = entries.find((entry) => entry.isIntersecting);
@@ -44,7 +46,7 @@
 	});
 </script>
 
-<section class="content-section {$$restProps.class || ''}" bind:this={component}>
+<section class="content-section {$$restProps.class || ''}" {id} bind:this={component}>
 	<slot />
 </section>
 
