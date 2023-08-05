@@ -50,7 +50,8 @@
 			transition: fill $transition-time-small $transition-timingfunction;
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			:global(svg) {
 				fill: $color-primary-200;
 			}

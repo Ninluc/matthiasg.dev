@@ -15,7 +15,8 @@
 
 		transition: color $transition-time-small $transition-timingfunction;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: $color-primary-300;
 		}
 	}
