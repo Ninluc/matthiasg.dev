@@ -81,7 +81,7 @@
 			{#if work.projectLink}
 				<Button
 					href={work.projectLink}
-					type="secondary"
+					colorType="secondary"
 					target="blank"
 					rel="noopener noreferrer external">Accéder au site</Button
 				>
