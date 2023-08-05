@@ -5,6 +5,7 @@
 	import HelloHeadsSection from '$components/layout/main/contentSection/helloHeads/HelloHeadsSection.svelte';
 	import Profiler from '$components/layout/main/contentSection/others/Profiler.svelte';
 	import WorksList from '$components/layout/main/contentSection/others/WorksList.svelte';
+	import Button from '$components/theme/Button.svelte';
 
 	export let data;
 </script>

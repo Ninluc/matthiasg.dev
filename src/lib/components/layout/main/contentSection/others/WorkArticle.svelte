@@ -2,7 +2,7 @@
 	import type { WorksApi } from '$lib/types/worksApi';
 	import { PREVIEW_IMG_FOLDER, getWorkPreviewImage } from '$lib/scripts/layout/getWorkPreviewImg';
 	import Img from '@zerodevx/svelte-img';
-	import Button from '$components/theme/button.svelte';
+	import Button from '$components/theme/Button.svelte';
 
 	export let work: WorksApi;
 
