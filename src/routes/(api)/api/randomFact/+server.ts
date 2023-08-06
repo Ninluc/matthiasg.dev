@@ -13,7 +13,7 @@ export const GET: RequestHandler = async (event) => {
 // CodeTime
 async function getCodeTime(href: string) {
 	try {
-		const response = await fetch(href); // Replace with the actual API URL
+		const response = await fetch(href);
 		if (!response.ok) {
 			throw new Error('Failed to fetch data');
 		}
