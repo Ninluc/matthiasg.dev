@@ -4,6 +4,7 @@ export interface Page {
 	pageName: string;
 	path: string;
 	title: string;
+	displayOnHeader?: boolean;
 	sub?: SubLink[];
 }
 export type SubLink = {
@@ -53,6 +54,18 @@ export const pages: Readable<Page[]> = readable([
 			{
 				subTitle: 'Projets professionnel',
 				subId: 'professional'
+			}
+		]
+	},
+	{
+		pageName: 'Hugo',
+		path: '/panda',
+		title: 'Soutien à Hugo',
+		displayOnHeader: false,
+		sub: [
+			{
+				subTitle: 'Faire un don',
+				subId: 'donation'
 			}
 		]
 	}
