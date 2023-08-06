@@ -3,11 +3,13 @@
 
 // HELLO BIG HEADS
 main>div>section.content-section:first-child {
-    height: calc(100vh - clamp(51px, 2vh, 50vh));
-
-    position: relative;
-
     background: linear-gradient(180deg, th.$color-completelyblack, th.$color-surface, th.$color-surface);
+
+    &#hello-heads {
+        height: calc(100vh - clamp(51px, 2vh, 50vh));
+
+        position: relative;
+    }
 
     /* div.canva-container {
         
@@ -17,7 +19,7 @@ main>div>section.content-section:first-child {
         height: 100%;
         max-width: 90vw; */
 
-    &>canvas {
+    &#hello-heads>canvas {
         max-width: 100% !important;
         // width: 100% !important;
         // height: 100% !important;
@@ -33,7 +35,7 @@ main>div>section.content-section:first-child {
 
     // }
 
-    p {
+    &#hello-heads p {
         position: absolute;
         top: 50%;
         left: 50%;
