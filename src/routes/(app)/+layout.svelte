@@ -1,4 +1,6 @@
 <script lang="ts">
+	import * as ackeeTracker from 'ackee-tracker'
+
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
 	import PageTransition from '$components/layout/pageTransition/PageTransition.svelte';
@@ -40,6 +42,14 @@
 			loadingFinished.set(true);
 		}
 	});
+
+	if (browser) {
+		const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
+			detailed: true, 
+			ignoreLocalhost: false,
+		})
+		tracker.record(import.meta.env.ACKEE_DOMAIN)
+	}
 </script>
 
 <svelte:head>

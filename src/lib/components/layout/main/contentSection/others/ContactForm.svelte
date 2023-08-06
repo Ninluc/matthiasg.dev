@@ -1,13 +1,10 @@
 <script lang="ts">
+	import * as ackeeTracker from 'ackee-tracker'
+
 	import { browser } from '$app/environment';
 	import Button from '$components/theme/Button.svelte';
-	import { onMount } from 'svelte';
-	import SuperDebug from 'sveltekit-superforms/client/SuperDebug.svelte';
 	import ContentAfterBigTextSection from '../ContentAfterBigTextSection.svelte';
 	import { superForm } from 'sveltekit-superforms/client';
-	import { sendDiscordWebhook } from '$lib/scripts/misc/sendDiscordWebHook';
-	import type { s } from 'vitest/dist/types-198fd1d9';
-	import { writable } from 'svelte/store';
 
 	export const headingLevel: number = 3;
 	const heading = 'h' + headingLevel.toString();
@@ -40,6 +37,17 @@
 			}
 		}
 	});
+
+	// Ackee
+	function ackeeReached() {
+		if (browser) {
+		const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
+			detailed: true, 
+			ignoreLocalhost: false,
+		})
+		tracker.action(import.meta.env.ACKEE_ACTION__REACHED_CONTACT, {key: 'reached-contact', value: 1})
+	}
+	}
 </script>
 
 <ContentAfterBigTextSection id="contact">
