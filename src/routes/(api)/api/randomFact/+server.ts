@@ -24,9 +24,9 @@ async function getCodeTime(href: string) {
 	}
 }
 
-const codeTimeHref = 'https://api.codetime.devd/shield?id=16877&in=0';
+const codeTimeHref = 'https://api.codetime.dev/shield?id=16877&in=0';
 const thisProjectCodeTimeHref =
-	'https://api.codetime.devd/shield?id=16877&project=matthiasg.dev&in=0';
+	'https://api.codetime.dev/shield?id=16877&project=matthiasg.dev&in=0';
 
 const facts = [
 	"A appris l'HTML sur <a target='_blank' href='https://www.codecademy.com/learn/learn-html'>codecademy</a> en 2013",
