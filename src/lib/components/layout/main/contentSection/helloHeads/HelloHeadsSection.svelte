@@ -209,7 +209,7 @@
 
 <svelte:window bind:innerWidth={pageWidth} bind:innerHeight={pageHeight} bind:scrollY />
 
-<ContentSection class={$loadingFinished ? 'content-section__appear' : ''}>
+<ContentSection class={$loadingFinished ? 'content-section__appear' : ''} id="hello-heads">
 	<!-- <div class="canva-container" bind:clientHeight={containerHeight} bind:clientWidth={containerWidth}>  -->
 	<Threlte.Canvas
 		rendererParameters={{ antialias: true }}
