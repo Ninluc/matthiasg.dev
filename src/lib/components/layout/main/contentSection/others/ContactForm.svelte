@@ -28,7 +28,7 @@
 		onError({ result }) {
 			errorMessage = 'Un problème est survenu : ' + result.error.message;
 		},
-		taintedMessage: 'Le message ne sera pas envoyé !',
+		// taintedMessage: 'Le message ne sera pas envoyé !',
 		validators: {
 			mail: (mail) => {
 				if (!mail) return 'Veuillez entrer une adresse email';
