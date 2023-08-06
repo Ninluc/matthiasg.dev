@@ -3,7 +3,13 @@
 	// import { headerHeight } from '$stores/layout/headerHeight';
 	import HeaderLink from './HeaderLink.svelte';
 
-	let links: { pageName?: string; path: string; title: string; sub?: SubLink[] }[];
+	let links: {
+		pageName?: string;
+		path: string;
+		title: string;
+		displayOnHeader?: boolean;
+		sub?: SubLink[];
+	}[];
 	links = [
 		...$pages,
 		{
@@ -21,9 +27,11 @@
 				<HeaderLink href="/">Accueil</HeaderLink>
 			</li> -->
 			{#each Object.entries(links) as [title, value]}
-				<li>
-					<HeaderLink href={value.path}>{value.title}</HeaderLink>
-				</li>
+				{#if value.displayOnHeader == undefined || value.displayOnHeader}
+					<li>
+						<HeaderLink href={value.path}>{value.title}</HeaderLink>
+					</li>
+				{/if}
 			{/each}
 		</ul>
 	</nav>
