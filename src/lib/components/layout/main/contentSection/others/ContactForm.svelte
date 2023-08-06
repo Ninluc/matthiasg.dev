@@ -5,7 +5,7 @@
 	import Button from '$components/theme/Button.svelte';
 	import ContentAfterBigTextSection from '../ContentAfterBigTextSection.svelte';
 	import { superForm } from 'sveltekit-superforms/client';
-
+	
 	export const headingLevel: number = 3;
 	const heading = 'h' + headingLevel.toString();
 
@@ -50,8 +50,19 @@
 	}
 </script>
 
-<ContentAfterBigTextSection id="contact">
+<!-- <svelte:head>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	<script>
+		function onSubmit(token) {
+			console.log(token);
+			document.getElementById('contact-form').submit();
+		}
+	</script>
+</svelte:head> -->
+
+<ContentAfterBigTextSection id="contact" intersectionCallback={ackeeReached}>
 	<form method="post" id="contact-form" use:enhance>
+		<!-- <p>Captcha : {$form["g-recaptcha-response"]}</p> -->
 		<!-- <SuperDebug data={$form} /> -->
 		<svelte:element this={heading} class="form-title">Contact</svelte:element>
 
@@ -94,8 +105,13 @@
 				type="submit"
 				colorType={$delayed ? 'busy' : 'cta'}
 				aria-busy={$delayed}
-				disabled={$delayed}>Envoyer</Button
+				disabled={$delayed}
+				>Envoyer</Button
 			>
+			<!-- class="g-recaptcha"
+				data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+				data-callback="onSubmit"
+				data-theme="dark" -->
 		{/if}
 	</form>
 </ContentAfterBigTextSection>
@@ -136,7 +152,7 @@
 
 			padding: $gap-medium;
 
-			border: 1px solid #d4d6d7;
+			border: 1px solid $color-primary;
 			border-radius: $theme-borderradius;
 
 			&[aria-invalid='true'] {
