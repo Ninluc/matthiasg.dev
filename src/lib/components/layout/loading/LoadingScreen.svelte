@@ -1,28 +1,18 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
+	import { getTextFileLines } from '$lib/scripts/loadTextFile';
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 	import * as ThretleExtras from '@threlte/extras';
 	import { onMount } from 'svelte';
 	import { cubicOut } from 'svelte/easing';
 	import { tweened, type Tweened } from 'svelte/motion';
+	import { fade } from 'svelte/transition';
 
 	const { progress } = ThretleExtras.useProgress();
 
-	onMount(() => {
-		if (browser) {
-			if (window.scrollY > 0) {
-				setTimeout(() => {
-					console.log(window.scrollY);
-					// document.documentElement.scrollTo(0, 0);
-					document.documentElement.scrollIntoView({
-						behavior: 'smooth',
-						block: 'start'
-					});
-					console.log(window.scrollY);
-				}, 1);
-			}
-		}
-	});
+	let loadingScreenText: HTMLDivElement;
+	export let loadingLines: string[];
+	let loadingLineIndex: number = 0;
 
 	let percentLoaded: Tweened<number>;
 	$: percentLoaded = tweened(0, {
@@ -38,9 +28,24 @@
 			loadingFinished.set(true);
 		}
 	}
+
+	$: {
+		if (loadingScreenText) {
+			const number = $percentLoaded.toFixed(2);
+
+			loadingScreenText.innerText =
+				loadingScreenText.innerText +
+				`[ ${number.padStart(6, ' ')}% ] ` +
+				loadingLines[loadingLineIndex] +
+				'\n';
+			loadingLineIndex++;
+		}
+	}
 </script>
 
-<div>loading {$percentLoaded}%</div>
+<div out:fade={{ delay: 100, duration: 300, easing: cubicOut }}>
+	<p bind:this={loadingScreenText} />
+</div>
 
 <style lang="scss">
 	div {
@@ -51,12 +56,20 @@
 		height: 100vh;
 
 		background-color: #000000;
-		color: #ffffff;
 
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
 
 		z-index: 10000;
+
+		p {
+			margin: 0px;
+
+			font: $loading;
+
+			color: #ffffff;
+		}
 	}
 </style>
