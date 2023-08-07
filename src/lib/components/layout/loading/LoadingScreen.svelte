@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { getTextFileLines } from '$lib/scripts/loadTextFile';
+	import { bootText } from '$stores/layout/bootText';
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 	import * as ThretleExtras from '@threlte/extras';
 	import { onMount } from 'svelte';
@@ -11,7 +12,6 @@
 	const { progress } = ThretleExtras.useProgress();
 
 	let loadingScreenText: HTMLDivElement;
-	export let loadingLines: string[];
 	let loadingLineIndex: number = 0;
 
 	let percentLoaded: Tweened<number>;
@@ -36,7 +36,7 @@
 			loadingScreenText.innerText =
 				loadingScreenText.innerText +
 				`[ ${number.padStart(6, ' ')}% ] ` +
-				loadingLines[loadingLineIndex] +
+				bootText[loadingLineIndex] +
 				'\n';
 			loadingLineIndex++;
 		}

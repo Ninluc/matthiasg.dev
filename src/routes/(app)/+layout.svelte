@@ -84,7 +84,7 @@
 <Header />
 
 {#if !$loadingFinished && activateLoadingScreen}
-	<LoadingScreen loadingLines={data.loadingText} />
+	<LoadingScreen />
 {/if}
 
 <!-- <main style="{devStyle} --headerHeight: {$headerHeight}px;"> -->
