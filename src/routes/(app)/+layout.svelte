@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as ackeeTracker from 'ackee-tracker'
+	import * as ackeeTracker from 'ackee-tracker';
 
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
@@ -14,7 +14,7 @@
 	import { beforeNavigate } from '$app/navigation';
 
 	import '../../app.scss';
-	import { beforeUpdate } from 'svelte';
+	import { beforeUpdate, onMount } from 'svelte';
 	import { pageToIsBefore } from '$lib/scripts/layout/pageToIsBefore';
 
 	export let data;
@@ -33,10 +33,12 @@
 	let currentTitle: string | undefined;
 	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;
 
-	let activateLoadingScreen: boolean = !dev;
+	// let activateLoadingScreen: boolean = !dev;
+	let activateLoadingScreen: boolean = true;
 	beforeUpdate(() => {
 		// Do we need loading animation ?
-		activateLoadingScreen = oldPathname === undefined && data.pathname == '/' && !dev;
+		// activateLoadingScreen = oldPathname === undefined && data.pathname == '/' && !dev;
+		activateLoadingScreen = oldPathname === undefined && data.pathname == '/';
 
 		if (!activateLoadingScreen || !browser) {
 			loadingFinished.set(true);
@@ -45,10 +47,31 @@
 
 	if (browser) {
 		const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
-			detailed: true, 
-			ignoreLocalhost: false,
-		})
-		tracker.record(import.meta.env.ACKEE_DOMAIN)
+			detailed: true,
+			ignoreLocalhost: false
+		});
+		tracker.record(import.meta.env.ACKEE_DOMAIN);
+	}
+
+	let htmlTag: HTMLElement;
+
+	onMount(() => {
+		htmlTag = document.documentElement;
+	});
+
+	$: {
+		if (htmlTag) {
+			if (browser && !$loadingFinished && activateLoadingScreen) {
+				setTimeout(() => {
+					// scroll to top
+					document.body.scrollIntoView();
+				});
+
+				htmlTag.classList.add('disable-scroll');
+			} else {
+				htmlTag.classList.remove('disable-scroll');
+			}
+		}
 	}
 </script>
 
@@ -56,10 +79,12 @@
 	<title>{currentTitle ? `${currentTitle} | matthiasg.dev` : 'matthiasg.dev'}</title>
 </svelte:head>
 
+<svelte:document class:disable-scroll={!$loadingFinished && activateLoadingScreen} />
+
 <Header />
 
 {#if !$loadingFinished && activateLoadingScreen}
-	<LoadingScreen />
+	<LoadingScreen loadingLines={data.loadingText} />
 {/if}
 
 <!-- <main style="{devStyle} --headerHeight: {$headerHeight}px;"> -->

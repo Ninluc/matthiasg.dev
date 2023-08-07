@@ -18,6 +18,10 @@ body :is(*, *:before, *:after) {
 
 html {
 	scroll-behavior: smooth;
+
+	&.disable-scroll {
+		overflow-y: hidden;
+	}
 }
 
 body {
