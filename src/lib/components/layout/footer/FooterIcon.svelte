@@ -8,6 +8,7 @@
 
 	async function getImage(path: string): Promise<string> {
 		const res = await fetch(path);
+		if (!res.ok) throw new Error(res.statusText);
 		const data = await res.text();
 
 		if (res.ok) {
