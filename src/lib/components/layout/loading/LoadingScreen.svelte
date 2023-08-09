@@ -1,10 +1,7 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
-	import { getTextFileLines } from '$lib/scripts/loadTextFile';
 	import { bootText } from '$stores/layout/bootText';
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 	import * as ThretleExtras from '@threlte/extras';
-	import { onMount } from 'svelte';
 	import { cubicOut } from 'svelte/easing';
 	import { tweened, type Tweened } from 'svelte/motion';
 	import { fade } from 'svelte/transition';
