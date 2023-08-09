@@ -33,12 +33,12 @@
 	let currentTitle: string | undefined;
 	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;
 
-	// let activateLoadingScreen: boolean = !dev;
-	let activateLoadingScreen: boolean = true;
+	let activateLoadingScreen: boolean = !dev;
+	// let activateLoadingScreen: boolean = true;
 	beforeUpdate(() => {
 		// Do we need loading animation ?
-		// activateLoadingScreen = oldPathname === undefined && data.pathname == '/' && !dev;
-		activateLoadingScreen = oldPathname === undefined && data.pathname == '/';
+		activateLoadingScreen = oldPathname === undefined && data.pathname == '/' && !dev;
+		// activateLoadingScreen = oldPathname === undefined && data.pathname == '/';
 
 		if (!activateLoadingScreen || !browser) {
 			loadingFinished.set(true);
