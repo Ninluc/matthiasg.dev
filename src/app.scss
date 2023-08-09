@@ -19,6 +19,8 @@ body :is(*, *:before, *:after) {
 html {
 	scroll-behavior: smooth;
 
+	scroll-padding: calc(6.2vh * 2 + 3px) 6.2vh;
+
 	&.disable-scroll {
 		overflow-y: hidden;
 	}
