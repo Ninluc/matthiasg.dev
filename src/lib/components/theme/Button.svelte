@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let colorType: 'cta' | 'secondary' | 'busy' = 'cta';
+	export let colorType: 'cta' | 'secondary' | 'surface' | 'busy' = 'cta';
 	export let buttonType: 'link' | 'button' = 'link';
 
 	const buttonTypeHTMLElement = buttonType === 'link' ? 'a' : 'button';
@@ -7,6 +7,7 @@
 	const colors = {
 		cta: 'var(--color-cta)',
 		secondary: 'var(--color-secondary)',
+		surface: 'var(--color-surface)',
 		busy: 'var(--color-busy)'
 	};
 </script>
@@ -26,6 +27,8 @@
 		--color-cta-hover: #{$color-tertiary-600};
 		--color-secondary: #{$color-completelyblack};
 		--color-secondary-hover: #{$color-completelyblack-400};
+		--color-surface: #{$color-surface};
+		--color-surface-hover: #{$color-surface-400};
 		--color-busy: #{$color-surface-300};
 		--color-busy-hover: #{$color-surface-400};
 
