@@ -5,7 +5,7 @@
 	import Button from '$components/theme/Button.svelte';
 	import ContentAfterBigTextSection from '../ContentAfterBigTextSection.svelte';
 	import { superForm } from 'sveltekit-superforms/client';
-	import { tracker } from '$stores/ackee';
+	import { setAckeeTracker, tracker } from '$stores/ackee';
 
 	export const headingLevel: number = 3;
 	const heading = 'h' + headingLevel.toString();
@@ -42,7 +42,10 @@
 	// Ackee
 	function ackeeReached() {
 		if (browser) {
-			tracker.action(import.meta.env.VITE_ACKEE_ACTION__REACHED_CONTACT, {
+			if (!$tracker) {
+				setAckeeTracker();
+			}
+			$tracker?.action(import.meta.env.VITE_ACKEE_ACTION__REACHED_CONTACT, {
 				key: 'reached-contact',
 				value: 1
 			});

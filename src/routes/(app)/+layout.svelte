@@ -14,7 +14,7 @@
 	import '../../app.scss';
 	import { beforeUpdate, onMount } from 'svelte';
 	import { pageToIsBefore } from '$lib/scripts/layout/pageToIsBefore';
-	import { tracker } from '$stores/ackee';
+	import { setAckeeTracker, tracker } from '$stores/ackee';
 
 	export let data;
 
@@ -45,7 +45,10 @@
 	});
 
 	if (browser) {
-		tracker.record(import.meta.env.VITE_ACKEE_DOMAIN);
+		if (!$tracker) {
+			setAckeeTracker();
+		}
+		$tracker?.record(import.meta.env.VITE_ACKEE_DOMAIN);
 	}
 
 	let htmlTag: HTMLElement;
