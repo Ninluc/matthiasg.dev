@@ -21,4 +21,4 @@ But keep in mind that this is my first project with svelte and typescript.
 
 Once you cloned the repo, you need to add a `.env` file at the root of the project with a `DISCORD_WEBHOOK` constant that contains the end of a [discord webhook](https://discord.com/developers/docs/resources/webhook) url (`DISCORD_WEBHOOK="123456789101112131415161718/randomLettersNumbersAndCharachters"`)
 
-You will also need to put a `ACKEE_DOMAIN` and a `ACKEE_ACTION__REACHED_CONTACT` id. [Ackee](https://ackee.electerious.com/) is a self-hosted tracker that respect privacy. I use it to get data about the visits on the site and `ACKEE_ACTION__REACHED_CONTACT` is a custom action that triggers when someone reach the end of the homepage.
+You will also need to put a `VITE_ACKEE_DOMAIN` and a `VITE_ACKEE_ACTION__REACHED_CONTACT` id. [Ackee](https://ackee.electerious.com/) is a self-hosted tracker that respect privacy. I use it to get data about the visits on the site and `VITE_ACKEE_ACTION__REACHED_CONTACT` is a custom action that triggers when someone reach the end of the homepage.

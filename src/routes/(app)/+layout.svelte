@@ -48,9 +48,10 @@
 	if (browser) {
 		const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
 			detailed: true,
-			ignoreLocalhost: false
+			ignoreLocalhost: true,
+			ignoreOwnVisits: true
 		});
-		tracker.record(import.meta.env.ACKEE_DOMAIN);
+		tracker.record(import.meta.env.VITE_ACKEE_DOMAIN);
 	}
 
 	let htmlTag: HTMLElement;

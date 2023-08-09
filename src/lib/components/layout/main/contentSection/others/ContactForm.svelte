@@ -45,7 +45,7 @@
 				detailed: true,
 				ignoreLocalhost: false
 			});
-			tracker.action(import.meta.env.ACKEE_ACTION__REACHED_CONTACT, {
+			tracker.action(import.meta.env.VITE_ACKEE_ACTION__REACHED_CONTACT, {
 				key: 'reached-contact',
 				value: 1
 			});
