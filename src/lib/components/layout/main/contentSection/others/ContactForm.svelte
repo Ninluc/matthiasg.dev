@@ -43,9 +43,12 @@
 		if (browser) {
 			const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
 				detailed: true,
-			ignoreLocalhost: false,
-		})
-		tracker.action(import.meta.env.ACKEE_ACTION__REACHED_CONTACT, {key: 'reached-contact', value: 1})
+				ignoreLocalhost: false
+			});
+			tracker.action(import.meta.env.ACKEE_ACTION__REACHED_CONTACT, {
+				key: 'reached-contact',
+				value: 1
+			});
 		}
 	}
 </script>
