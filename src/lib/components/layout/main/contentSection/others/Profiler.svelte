@@ -32,6 +32,7 @@
 </script>
 
 <ContentAfterBigTextSection
+	id="me"
 	intersectionCallback={() => {
 		animationLaunched = true;
 	}}

@@ -7,7 +7,7 @@
 	export const headingLevel: number = 3;
 </script>
 
-<ContentAfterBigTextSection>
+<ContentAfterBigTextSection id="some-projects">
 	<section class="works-container">
 		{#each works as work}
 			<WorkArticle {work} {headingLevel} />
