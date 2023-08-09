@@ -37,6 +37,8 @@
 </TextSection>
 
 <style lang="scss">
+	@use 'sass:math';
+
 	// Header
 	h2 {
 		width: 100%;
@@ -101,7 +103,7 @@
 				$z: $i - 2;
 				font-size: (($size-title - 3) - ($removeFactor * $y));
 				$marginHorizontal: ($gap-medium * (6 - $i));
-				margin: $marginHorizontal 0 ($marginHorizontal / 2) ($gap-medium * $y);
+				margin: $marginHorizontal 0 math.div($marginHorizontal, 2) ($gap-medium * $y);
 
 				color: darken($color-primary-500, $y * 9);
 			}
