@@ -13,8 +13,6 @@ export function getWorkPreviewImage(image: string): Image | undefined {
 		}
 	);
 
-	console.log(imageFiles);
-
 	for (const key in imageFiles) {
 		const imageFullName = key.split('/').pop() ?? '';
 		const imageName = imageFullName.split('.').slice(0, -1).join('.') ?? '';
