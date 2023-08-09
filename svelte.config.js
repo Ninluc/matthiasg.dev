@@ -7,6 +7,9 @@ import remarkUnwrapImages from 'remark-unwrap-images';
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	extensions: ['.md'],
+	layout: {
+		_: 'src/lib/components/layout/mdsvex/layout.svelte'
+	},
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
 			const highlighter = await shiki.getHighlighter({ theme: 'material-theme-palenight' });
