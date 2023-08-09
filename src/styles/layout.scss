@@ -2,7 +2,7 @@
 @use './font.scss' as f;
 
 // HELLO BIG HEADS
-main>div>section.content-section:first-child {
+main>div>.content-section:first-child {
     background: linear-gradient(180deg, th.$color-completelyblack, th.$color-surface, th.$color-surface);
 
     &#hello-heads {
@@ -47,6 +47,20 @@ main>div>section.content-section:first-child {
         text-shadow: 0 0 10px th.$color-surface;
 
         transform: translate(-50%, -50%);
+    }
+}
+
+main {
+    .content-section {
+        $padding-top: th.$gap-huge;
+        padding: $padding-top 0 ($padding-top * 2) 0;
+
+        // REMOVEME
+        font-size: x-large;
+
+        &>* {
+            max-width: min(calc(100% - th.$gap-big), 28.5cm);
+        }
     }
 }
 
