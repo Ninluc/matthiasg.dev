@@ -1,11 +1,11 @@
 <script lang="ts">
-	import * as ackeeTracker from 'ackee-tracker'
+	import * as ackeeTracker from 'ackee-tracker';
 
 	import { browser } from '$app/environment';
 	import Button from '$components/theme/Button.svelte';
 	import ContentAfterBigTextSection from '../ContentAfterBigTextSection.svelte';
 	import { superForm } from 'sveltekit-superforms/client';
-	
+
 	export const headingLevel: number = 3;
 	const heading = 'h' + headingLevel.toString();
 
@@ -41,12 +41,12 @@
 	// Ackee
 	function ackeeReached() {
 		if (browser) {
-		const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
-			detailed: true, 
+			const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
+				detailed: true,
 			ignoreLocalhost: false,
 		})
 		tracker.action(import.meta.env.ACKEE_ACTION__REACHED_CONTACT, {key: 'reached-contact', value: 1})
-	}
+		}
 	}
 </script>
 
@@ -67,7 +67,7 @@
 		<svelte:element this={heading} class="form-title">Contact</svelte:element>
 
 		{#if formIsValid}
-			<p class="success">Le message a été envoyé !</p>
+			<p class="success">Votre message a été envoyé !</p>
 		{:else}
 			<!-- Server error -->
 			{#if errorMessage}
@@ -105,8 +105,7 @@
 				type="submit"
 				colorType={$delayed ? 'busy' : 'cta'}
 				aria-busy={$delayed}
-				disabled={$delayed}
-				>Envoyer</Button
+				disabled={$delayed}>Envoyer</Button
 			>
 			<!-- class="g-recaptcha"
 				data-sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
