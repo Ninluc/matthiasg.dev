@@ -1,6 +1,4 @@
 <script lang="ts">
-	import * as ackeeTracker from 'ackee-tracker';
-
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
 	import PageTransition from '$components/layout/pageTransition/PageTransition.svelte';
@@ -16,6 +14,7 @@
 	import '../../app.scss';
 	import { beforeUpdate, onMount } from 'svelte';
 	import { pageToIsBefore } from '$lib/scripts/layout/pageToIsBefore';
+	import { tracker } from '$stores/ackee';
 
 	export let data;
 
@@ -46,11 +45,6 @@
 	});
 
 	if (browser) {
-		const tracker = ackeeTracker.create('https://analytics.matthiasg.dev', {
-			detailed: true,
-			ignoreLocalhost: true,
-			ignoreOwnVisits: true
-		});
 		tracker.record(import.meta.env.VITE_ACKEE_DOMAIN);
 	}
 
