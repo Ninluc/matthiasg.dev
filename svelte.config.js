@@ -2,6 +2,7 @@ import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/kit/vite';
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import shiki from 'shiki';
+import remarkUnwrapImages from 'remark-unwrap-images';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -12,7 +13,8 @@ const mdsvexOptions = {
 			const result = escapeSvelte(highlighter.codeToHtml(code, { lang }));
 			return `{@html \`${result}\`}`;
 		}
-	}
+	},
+	remarkPlugins: [remarkUnwrapImages]
 };
 
 /** @type {import('@sveltejs/kit').Config} */
