@@ -79,7 +79,7 @@
 
 <svelte:document class:disable-scroll={!$loadingFinished && activateLoadingScreen} />
 
-<Header />
+<Header oldPath={oldPathname} currentPath={data.pathname} />
 
 {#if !$loadingFinished && activateLoadingScreen}
 	<LoadingScreen />
@@ -107,7 +107,7 @@
 		/* Remove layout jumps beatween pages transitions */
 		display: grid;
 		grid-template-rows: 1fr;
-		grid-template-columns: 1fr;
+		grid-template-columns: 100vw;
 
 		& > :global(*) {
 			grid-row: 1;

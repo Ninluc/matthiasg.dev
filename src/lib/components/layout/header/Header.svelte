@@ -1,7 +1,12 @@
 <script lang="ts">
 	import { pages, type SubLink } from '$stores/layout/pages';
+	import { fade } from 'svelte/transition';
 	// import { headerHeight } from '$stores/layout/headerHeight';
 	import HeaderLink from './HeaderLink.svelte';
+	import { cubicOut } from 'svelte/easing';
+
+	export let oldPath: undefined | string = undefined;
+	export let currentPath: typeof oldPath = undefined;
 
 	let links: {
 		pageName?: string;
@@ -21,6 +26,15 @@
 
 <!-- <header bind:offsetHeight={$headerHeight}> -->
 <header>
+	{#if oldPath && links.find((l) => l.path === currentPath) == undefined}
+		<div class="backbutton-container">
+			<a
+				href={oldPath}
+				class="backbutton"
+				transition:fade={{ easing: cubicOut, duration: 300, delay: 200 }}>← Retour</a
+			>
+		</div>
+	{/if}
 	<nav>
 		<ul>
 			<!-- <li>
@@ -58,7 +72,17 @@
 
 		background-color: $color-completelyblack;
 
-		z-index: 100;
+		z-index: 1000;
+
+		.backbutton-container {
+			.backbutton {
+				font: $main;
+				color: $color-primary;
+				text-decoration: none;
+
+				white-space: nowrap;
+			}
+		}
 
 		nav {
 			flex: 1;
