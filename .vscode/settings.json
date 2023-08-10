@@ -2,5 +2,11 @@
 	"workbench.editor.labelFormat": "short",
 	"explorer.compactFolders": false,
 	"editor.formatOnSave": true,
-	"prettier.configPath": ".prettierrc"
+	"prettier.configPath": ".prettierrc",
+	"cSpell.words": [
+		"Alwaysdata"
+	],
+	"languageToolLinter.languageTool.ignoredWordsInWorkspace": [
+		"mirror"
+	]
 }
