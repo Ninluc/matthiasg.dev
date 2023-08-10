@@ -1,5 +1,6 @@
 @use './theme.scss' as th;
 @use './font.scss' as f;
+@use './viewWidth.scss' as vw;
 
 // HELLO BIG HEADS
 main>div>.content-section:first-child {
@@ -60,6 +61,11 @@ main {
 
         &>* {
             max-width: min(calc(100% - th.$gap-big), 28.5cm);
+        }
+
+        @media only screen and (max-width: vw.$screen-small) {
+            $padding-top: 10vh;
+            padding: $padding-top 0 ($padding-top * 2) 0;
         }
     }
 }

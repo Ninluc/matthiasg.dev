@@ -26,25 +26,6 @@
 
 <article class="work">
 	<div class="image-container">
-		<!-- {#await getWorkPreviewImage(work.slug)}
-                <p>Chargement de l'image...</p>
-            {:then images}
-                {#if images}
-                    {#each images as image, index}
-                        {#if index === 0}
-                            <img
-                                src={PREVIEW_IMG_FOLDER + image}
-                                alt="Prévisualisation de {work.title}"
-                                decoding="async"
-                            />
-                        {:else}
-                            <source srcset={PREVIEW_IMG_FOLDER + image} />
-                        {/if}
-                    {/each}
-                {/if}
-            {/await} -->
-		<!-- {#await getWorkPreviewImage(work.slug) then image} -->
-		<!-- {#if image} -->
 		<Img
 			src={previewImg}
 			alt={previewAlt}
@@ -198,6 +179,43 @@
 					opacity: 1 !important;
 					pointer-events: all !important;
 				}
+			}
+		}
+
+		@media only screen and (max-width: $screen-xsmall) {
+			padding-top: 20%;
+
+			position: relative;
+
+			flex-direction: column;
+
+			overflow: hidden;
+
+			div.image-container {
+				position: absolute;
+
+				top: 0px;
+				left: 0px;
+
+				width: 100%;
+
+				transform: translateY(-40%);
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+
+					width: 100%;
+					height: 100%;
+
+					background-image: linear-gradient(0deg, rgba(30, 31, 35, 1) 23%, rgba(30, 31, 35, 0) 80%);
+				}
+			}
+
+			div.text-container {
+				z-index: 100;
 			}
 		}
 	}

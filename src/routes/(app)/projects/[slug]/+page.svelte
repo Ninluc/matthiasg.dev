@@ -31,7 +31,7 @@
 </TitleHeader>
 
 <TextSection>
-	<article>
+	<article class="work-content">
 		<svelte:component this={data.content} />
 	</article>
 </TextSection>
@@ -50,6 +50,10 @@
 		text-align: left;
 
 		color: $font-color-on-surface;
+
+		@media only screen and (max-width: $screen-small) {
+			font-size: clamp(30px, $size-title, 10vw);
+		}
 	}
 
 	.work-info-container {
@@ -71,6 +75,9 @@
 			// background: $color-surface;
 
 			border-radius: $theme-borderradius;
+			opacity: 0;
+
+			animation: fadeIn $transition-time-medium $transition-timingfunction 300ms forwards;
 
 			p {
 				margin: 0;
@@ -81,10 +88,19 @@
 				font: $main;
 				color: $font-color-on-surface;
 			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
 		}
 	}
 
-	article {
+	:global(article.work-content) {
 		width: 100%;
 
 		:global(h3),
@@ -96,12 +112,20 @@
 			// font-family: $family-main;
 		}
 
+		:global(p),
+		:global(p > a) {
+			@media only screen and (max-width: $screen-small) {
+				font-size: 18px;
+			}
+		}
+
 		$removeFactor: $size-title * 0.1;
 		@for $i from 3 through 6 {
 			:global(h#{$i}) {
 				$y: $i - 3;
 				$z: $i - 2;
-				font-size: (($size-title - 3) - ($removeFactor * $y));
+				font-size: clamp(30px, ((($size-title - 3rem) - ($removeFactor * $y))), 6vw) !important;
+				// font-size: ($size-title - 3) - ($removeFactor * $y);
 				$marginHorizontal: ($gap-medium * (6 - $i));
 				margin: $marginHorizontal 0 math.div($marginHorizontal, 2) ($gap-medium * $y);
 
