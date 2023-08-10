@@ -12,7 +12,7 @@ const mdsvexOptions = {
 	},
 	highlight: {
 		highlighter: async (code, lang = 'text') => {
-			const highlighter = await shiki.getHighlighter({ theme: 'material-theme-palenight' });
+			const highlighter = await shiki.getHighlighter({ theme: 'css-variables' });
 			const result = escapeSvelte(highlighter.codeToHtml(code, { lang }));
 			return `{@html \`${result}\`}`;
 		}
