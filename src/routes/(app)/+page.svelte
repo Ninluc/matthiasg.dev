@@ -19,6 +19,3 @@
 <WorksList works={data.works} />
 <BigTextSection>Vous voulez me contacter ?</BigTextSection>
 <ContactForm formData={data.form} />
-
-<style lang="scss">
-</style>
