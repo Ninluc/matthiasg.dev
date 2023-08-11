@@ -92,14 +92,22 @@
 			align-items: center;
 
 			ul {
+				$linkPadding: $gap-medium;
+
 				width: max-content;
 
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
-				column-gap: $headerVerticalPadding;
+				column-gap: $headerVerticalPadding - ($linkPadding * 2);
 
 				list-style-type: none;
+
+				li {
+					:global(a) {
+						padding: 0 $linkPadding;
+					}
+				}
 			}
 		}
 	}
