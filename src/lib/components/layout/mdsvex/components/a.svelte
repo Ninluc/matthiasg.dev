@@ -11,7 +11,8 @@
 		@include linkMain;
 		color: $color-tertiary;
 
-		transition: color $transition-time-small $transition-timingfunction;
+		transition: color $transition-time-small $transition-timingfunction,
+			transform $transition-time-small $transition-timingfunction;
 
 		&:hover {
 			color: $color-tertiary-700;

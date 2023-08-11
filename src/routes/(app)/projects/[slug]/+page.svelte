@@ -113,6 +113,21 @@
 			// font-family: $family-main;
 		}
 
+		@supports selector(:has(img)) {
+			:global(a:not(:has(img))) {
+				display: inline-block;
+
+				font-style: normal;
+
+				transform: skewX(-7deg);
+				transform-origin: bottom;
+
+				&:hover {
+					transform: skewX(0deg);
+				}
+			}
+		}
+
 		:global(p),
 		:global(p > a),
 		:global(ul > li) {
@@ -141,7 +156,6 @@
 			margin: $gap-small 0 $gap-medium 0;
 
 			max-width: 100%;
-
 		}
 
 		// Code
