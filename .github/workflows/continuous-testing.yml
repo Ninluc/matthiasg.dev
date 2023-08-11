@@ -27,4 +27,4 @@ jobs:
         run: npx playwright install
 
       - name: Run tests
-        run: npm run test
+        run: DISCORD_WEBHOOK=${{ env.DISCORD_WEBHOOK }} VITE_ACKEE_DOMAIN=${{ env.VITE_ACKEE_DOMAIN }} VITE_ACKEE_ACTION__REACHED_CONTACT=${{ env.VITE_ACKEE_ACTION__REACHED_CONTACT }} npm run test
