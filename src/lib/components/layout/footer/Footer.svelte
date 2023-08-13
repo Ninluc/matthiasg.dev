@@ -48,6 +48,8 @@
 		// height: calc(100dvh - var(--headerHeight));
 		height: calc(100vh - clamp(51px, 2vh, 50vh));
 
+		padding: $gap-big 0;
+
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -55,9 +57,6 @@
 		row-gap: $gap-big;
 
 		background-color: $color-completelyblack;
-
-		// REMOVEME
-		color: green;
 
 		section.icons-container {
 			display: flex;
@@ -67,13 +66,19 @@
 		}
 
 		section.links-container {
-			width: clamp(300px, 65%, 90vw);
+			width: clamp(100px, 65%, 90vw);
 
 			/* All children are the same size and take the less space possible */
 			display: flex;
 			justify-content: space-around;
 			flex-wrap: wrap;
 			gap: $gap-big;
+
+			overflow-y: auto;
+		}
+
+		@media only screen and (max-width: $screen-xxsmall) {
+			// row-gap: $gap-small;
 		}
 	}
 </style>

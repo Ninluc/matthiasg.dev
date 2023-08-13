@@ -57,6 +57,10 @@
 				text-align: center;
 				/* Don"t break text */
 				white-space: nowrap;
+
+				@media only screen and (max-width: $screen-xsmall) {
+					margin-bottom: $gap-medium;
+				}
 			}
 		}
 
@@ -83,9 +87,6 @@
 
 				ul.sub-links {
 					margin: $gap-small 0 $gap-medium $gap-big;
-
-					li {
-					}
 				}
 			}
 		}

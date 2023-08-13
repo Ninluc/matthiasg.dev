@@ -167,7 +167,6 @@
 				rotation: { x: 0, y: -headTo.rotation.y, z: 0 },
 				scale: { x: -1, y: 1, z: 1 }
 			};
-			console.log('playin animation');
 			requestAnimationFrame((timeStamp) => {
 				entryAnimation(100 * 15, [headFrom, headFrom2], [headTo, headTo2], timeStamp);
 			});

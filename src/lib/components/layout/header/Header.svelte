@@ -53,6 +53,7 @@
 
 <style lang="scss">
 	$headerVerticalPadding: 68px;
+	$linkPadding: $gap-medium;
 
 	header {
 		width: 100%;
@@ -71,6 +72,8 @@
 		align-items: center;
 
 		background-color: $color-completelyblack;
+
+		overflow-x: auto;
 
 		z-index: 1000;
 
@@ -92,7 +95,8 @@
 			align-items: center;
 
 			ul {
-				$linkPadding: $gap-medium;
+				padding: 0;
+				margin: 0;
 
 				width: max-content;
 
@@ -118,7 +122,7 @@
 			padding: 0px $headerVerticalPadding;
 			nav {
 				ul {
-					column-gap: $headerVerticalPadding;
+					column-gap: $headerVerticalPadding - ($linkPadding * 2);
 				}
 			}
 		}
@@ -130,7 +134,7 @@
 			padding: 0px $headerVerticalPadding;
 			nav {
 				ul {
-					column-gap: $headerVerticalPadding;
+					column-gap: $headerVerticalPadding - ($linkPadding * 2);
 				}
 			}
 		}
@@ -142,7 +146,7 @@
 			padding: 0px $headerVerticalPadding;
 			nav {
 				ul {
-					column-gap: $headerVerticalPadding;
+					column-gap: $headerVerticalPadding - ($linkPadding * 2);
 				}
 			}
 		}
@@ -154,7 +158,7 @@
 			padding: 0px $headerVerticalPadding;
 			nav {
 				ul {
-					column-gap: $headerVerticalPadding;
+					column-gap: $headerVerticalPadding - ($linkPadding * 2);
 				}
 			}
 		}
