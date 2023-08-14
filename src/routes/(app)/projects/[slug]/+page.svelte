@@ -4,6 +4,8 @@
 	import Button from '$components/theme/Button.svelte';
 	import CategoryChip from '$components/theme/CategoryChip.svelte';
 
+	import { format, parse } from 'date-fns';
+
 	export let data;
 </script>
 
@@ -12,7 +14,11 @@
 	<div class="work-info-container">
 		<div class="work-info">
 			<CategoryChip category={data.category} />
-			<p class="write-date">{data.date}</p>
+			<p class="write-date">
+				<time datetime={format(parse(data.date, 'dd/MM/yyyy', new Date()), 'yyyy-MM-dd')}
+					>{data.date}</time
+				>
+			</p>
 			{#if data.projectDate}
 				<p class="project-date">Date du projet : {data.projectDate}</p>
 			{/if}
