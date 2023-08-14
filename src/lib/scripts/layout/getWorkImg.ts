@@ -3,7 +3,7 @@ export const WORK_IMG_FOLDER = '../../../works/img/';
 export type Image = { format: string; src: string; width?: number; height?: number };
 export type ImageFiles = Record<string, { default: Image }>;
 
-export function getWorkPreviewImage(image: string): Image | undefined {
+export function getWorkDocImage(image: string): Image | undefined {
 	// Get all images with a name like the workSlug
 	const imageFiles: ImageFiles = import.meta.glob(
 		'../../../works/img/**/*.+(jpg|jpeg|png|gif|svg|webp)',

@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { WORK_IMG_FOLDER, getWorkPreviewImage } from '$lib/scripts/layout/getWorkImg';
+	import { WORK_IMG_FOLDER, getWorkDocImage } from '$lib/scripts/layout/getWorkImg';
 	import Img from '@zerodevx/svelte-img';
 
 	export let src: string;
-	const img = getWorkPreviewImage(src) as unknown as any[];
+	const img = getWorkDocImage(src) as unknown as any[];
 	export let alt: string;
 
 	const isLocalImage = src.startsWith('http') ? false : true;
