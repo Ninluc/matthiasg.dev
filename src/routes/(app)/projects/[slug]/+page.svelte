@@ -7,8 +7,6 @@
 	export let data;
 </script>
 
-<!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
-
 <TitleHeader>
 	<h2>{data.title}</h2>
 	<div class="work-info-container">
