@@ -1,10 +1,9 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
 	import PageTransition from '$components/layout/pageTransition/PageTransition.svelte';
 	import LoadingScreen from '$components/layout/loading/LoadingScreen.svelte';
-
-	import { pages } from '$stores/layout/pages';
 	import { direction } from '$stores/layout/pageTransitionDirection';
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 
@@ -29,8 +28,27 @@
 	// Transition direction
 	$: $direction = pageToIsBefore(data?.pathname, oldPathname ?? '') ? 'right' : 'left';
 
+	// SEO
+	// - Title
 	let currentTitle: string | undefined;
-	$: currentTitle = $pages.find((p) => p.path === data.pathname)?.title;
+	$: currentTitle = $page.data.seo?.title;
+	$: currentTitle = currentTitle ? `${currentTitle} | matthiasg.dev` : 'matthiasg.dev';
+	// - Description
+	let currentDescription: string | undefined;
+	$: currentDescription = $page.data.seo?.description;
+	$: currentDescription = currentDescription ?? 'Portfolio de Matthias Guillitte, développeur';
+	// - Image
+	let currentImage: string | undefined;
+	$: currentImage = $page.data.seo?.image;
+	// - Page type
+	let currentType: 'article' | 'website' | undefined;
+	$: currentType = $page.data.seo?.type;
+	$: currentType = currentType ?? 'website';
+	// - Twitter card
+	//    - Card type
+	let currentTwitterCardType: 'summary' | 'summary_large_image' | undefined;
+	$: currentTwitterCardType = $page.data.seo?.twitterCardType;
+	$: currentTwitterCardType = currentTwitterCardType ?? 'summary';
 
 	let activateLoadingScreen: boolean = !dev;
 	// let activateLoadingScreen: boolean = true;
@@ -74,7 +92,23 @@
 </script>
 
 <svelte:head>
-	<title>{currentTitle ? `${currentTitle} | matthiasg.dev` : 'matthiasg.dev'}</title>
+	<title>{currentTitle}</title>
+	<meta property="og:title" content={currentTitle} />
+	<meta name="twitter:title" content={currentTitle} />
+	<meta name="description" content={currentDescription} />
+	<meta property="og:description" content={currentDescription} />
+	<meta name="twitter:description" content={currentDescription} />
+	{#if currentImage}
+		<meta property="og:image" content={$page.url.host + currentImage} />
+		<meta name="twitter:image" content={$page.url.host + currentImage} />
+	{/if}
+	{#if currentType}
+		<meta property="og:type" content={currentType} />
+	{/if}
+	<meta property="og:locale" content="fr_BE" />
+	<meta name="twitter:card" content={currentTwitterCardType} />
+	<meta name="twitter:site" content={$page.url.toString()} />
+	<meta name="twitter:creator" content="datboi_master" />
 </svelte:head>
 
 <svelte:document class:disable-scroll={!$loadingFinished && activateLoadingScreen} />

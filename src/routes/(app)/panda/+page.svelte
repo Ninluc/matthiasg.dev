@@ -3,6 +3,8 @@
 	import ContentAfterBigTextSection from '$components/layout/main/contentSection/ContentAfterBigTextSection.svelte';
 	import ContentSection from '$components/layout/main/contentSection/base/ContentSection.svelte';
 	import Button from '$components/theme/Button.svelte';
+
+	export let data;
 </script>
 
 <ContentAfterBigTextSection

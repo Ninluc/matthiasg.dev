@@ -7,5 +7,5 @@ export async function load({ fetch, data }) {
 	works = works.sort(() => Math.random() - 0.5);
 	works = works.slice(0, 3);
 
-	return { works: works, ...data };
+	return { works: works, ...data, seo: { image: '/android-chrome-384x384.png', type: 'website' } };
 }
