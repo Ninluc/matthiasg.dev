@@ -4,7 +4,7 @@
 	let isLocalPage = href.startsWith('http') ? false : true;
 </script>
 
-<a {href} target={isLocalPage ? '' : '_blank'}><slot /></a>
+<a {href} target={isLocalPage ? '' : '_blank'} {...$$restProps}><slot /></a>
 
 <style lang="scss">
 	a {
