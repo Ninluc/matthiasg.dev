@@ -1,9 +1,12 @@
 <script lang="ts">
+	import Img from '@zerodevx/svelte-img';
 	import ContentAfterBigTextSection from '../ContentAfterBigTextSection.svelte';
 	import { write } from '$components/theme/transition/write';
 	import { getStringFromChars } from '$lib/scripts/stringsBuilder';
 	import { charTyping } from '$components/theme/transition/charTyping';
 	import { onMount } from 'svelte';
+
+	import image from '../../../../../assets/photos/me.png?run&width=208&height=241&fit=cover&position=center';
 
 	let animationLaunched = false;
 
@@ -44,7 +47,7 @@
 		</div>
 
 		<div class="photo">
-			<img src="/assets/photos/me.webp" alt="moi" srcset="/assets/photos/me.png" />
+			<Img src={image} alt="moi" />
 		</div>
 
 		<div class="code2">
@@ -108,6 +111,8 @@
 
 <style lang="scss">
 	article.profiler {
+		width: 100%;
+
 		display: grid;
 		grid-template-columns: 0.258fr $gap-medium 1fr;
 		grid-template-rows: 72px min-content min-content 31px 25px;
@@ -164,8 +169,10 @@
 		.photo {
 			grid-area: 2 / 1 / 4 / 2;
 
-			img {
-				max-width: 100%;
+			:global(img) {
+				display: block;
+
+				// max-width: 100%;
 				border: $color-profilerblack 5px solid;
 			}
 		}
@@ -234,10 +241,17 @@
 
 		@media only screen and (max-width: $screen-xsmall) {
 			grid-template-columns: 30% $gap-medium 70%;
-		}
 
-		@media only screen and (max-width: $screen-xxsmall) {
-			grid-template-columns: 40% $gap-medium 60%;
+			.white-text {
+				div:nth-child(2) {
+					&::before {
+						display: none;
+					}
+				}
+			}
+
+			display: flex;
+			flex-wrap: wrap;
 		}
 	}
 </style>
