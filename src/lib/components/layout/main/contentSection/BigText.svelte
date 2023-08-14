@@ -45,7 +45,7 @@
 			font-size: $size-title * 0.4;
 		}
 		@media only screen and (max-width: $screen-xxxsmall) {
-			font-size: $size-title * 0.2;
+			font-size: $size-title * 0.3 !important;
 		}
 	}
 
