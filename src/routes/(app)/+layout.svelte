@@ -40,6 +40,7 @@
 	// - Image
 	let currentImage: string | undefined;
 	$: currentImage = $page.data.seo?.image;
+	$: currentImage = currentImage ?? '/android-chrome-384x384.png';
 	// - Page type
 	let currentType: 'article' | 'website' | undefined;
 	$: currentType = $page.data.seo?.type;
@@ -99,8 +100,8 @@
 	<meta property="og:description" content={currentDescription} />
 	<meta name="twitter:description" content={currentDescription} />
 	{#if currentImage}
-		<meta property="og:image" content={$page.url.host + currentImage} />
-		<meta name="twitter:image" content={$page.url.host + currentImage} />
+		<meta property="og:image" content={currentImage} />
+		<meta name="twitter:image" content={currentImage} />
 	{/if}
 	{#if currentType}
 		<meta property="og:type" content={currentType} />
