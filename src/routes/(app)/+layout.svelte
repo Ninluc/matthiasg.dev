@@ -74,6 +74,16 @@
 
 	onMount(() => {
 		htmlTag = document.documentElement;
+
+		// Fix scrolling to fragment on page full reload
+		// Still didn't fix it when coming from another page
+		const hash = $page.url.hash;
+		const scrollTo = hash && document.getElementById(hash.slice(1));
+		if (scrollTo) {
+			setTimeout(() => {
+				scrollTo.scrollIntoView();
+			}, 1);
+		}
 	});
 
 	$: {
