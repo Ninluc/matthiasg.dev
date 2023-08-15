@@ -60,6 +60,12 @@
 			justify-content: flex-start;
 			align-items: center;
 			gap: $gap-medium;
+
+			overflow-x: auto;
+
+			@media only screen and (max-width: $screen-xsmall) {
+				padding: $gap-medium;
+			}
 		}
 	}
 </style>
