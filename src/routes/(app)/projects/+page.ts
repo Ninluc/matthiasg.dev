@@ -12,12 +12,13 @@ export async function load({ fetch, url }) {
 		works = works.filter((work) => work.category == category);
 	}
 
-	works = works.sort((a, b) => {
-		const dateA = parse(a.date, 'dd/MM/yyyy', new Date());
-		const dateB = parse(b.date, 'dd/MM/yyyy', new Date());
+	// → Already sorted by date in the api
+	// works = works.sort((a, b) => {
+	// 	const dateA = parse(a.date, 'dd/MM/yyyy', new Date());
+	// 	const dateB = parse(b.date, 'dd/MM/yyyy', new Date());
 
-		return dateB.getTime() - dateA.getTime();
-	});
+	// 	return dateB.getTime() - dateA.getTime();
+	// });
 
 	return {
 		works: works,

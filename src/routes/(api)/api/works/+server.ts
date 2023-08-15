@@ -1,8 +1,6 @@
 import type { WorksApi } from '$lib/types/worksApi';
 import { json } from '@sveltejs/kit';
 
-export const prerender = true;
-
 async function getWorks() {
 	let works: WorksApi[] = [];
 
