@@ -17,5 +17,9 @@ export const categoryColors: {
 	scolaire: {
 		background: '#d41976',
 		color: '#d4d6d7'
+	},
+	tous: {
+		background: '#d4d6d7',
+		color: '#000000'
 	}
 };
