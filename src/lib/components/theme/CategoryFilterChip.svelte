@@ -13,6 +13,7 @@
 </script>
 
 <a
+	data-sveltekit-noscroll
 	href="./projects?category={category}"
 	class="category"
 	class:current={isCurrentCategory}
@@ -49,6 +50,10 @@
 		&.current {
 			background-color: var(--background-color);
 			color: var(--hover-color);
+		}
+
+		@media only screen and (max-width: $screen-xsmall) {
+			padding: $gap-small;
 		}
 	}
 </style>

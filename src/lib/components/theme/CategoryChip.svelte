@@ -21,5 +21,9 @@
 		line-height: $lineheight-main;
 
 		border-radius: $theme-borderradius;
+
+		@media only screen and (max-width: $screen-xsmall) {
+			padding: $gap-small;
+		}
 	}
 </style>
