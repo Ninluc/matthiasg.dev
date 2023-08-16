@@ -3,29 +3,33 @@
 	import ContentSection from '$components/layout/main/contentSection/base/ContentSection.svelte';
 	import WorksList from '$components/layout/main/contentSection/others/WorksList.svelte';
 	import CategoryFilterChip from '$components/theme/CategoryFilterChip.svelte';
+	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
 
 	export let data;
 </script>
 
 <TitleHeader>
-	<h2>Mes projets</h2>
+	<h1>Mes projets</h1>
 
 	<div class="filters-container">
-		<div class="filters">
+		<!-- Visually hidden title -->
+		<VisuallyHiddenTitle headingLevel={2}>Filtrer par catégorie de projet</VisuallyHiddenTitle>
+
+		<nav class="filters">
 			<CategoryFilterChip category="tous" />
 			<CategoryFilterChip category="personnel" />
 			<CategoryFilterChip category="scolaire" />
 			<CategoryFilterChip category="profesionnel" />
-		</div>
+		</nav>
 	</div>
 </TitleHeader>
 
 {#key data.works}
-	<WorksList headingLevel={3} works={data.works} />
+	<WorksList works={data.works} />
 {/key}
 
 <style lang="scss">
-	h2 {
+	h1 {
 		width: 100%;
 
 		margin: 0;

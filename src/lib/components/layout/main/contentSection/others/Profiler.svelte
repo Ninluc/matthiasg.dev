@@ -7,6 +7,7 @@
 	import { onMount } from 'svelte';
 
 	import image from '../../../../../assets/photos/me.png?run&width=208&height=241&fit=cover&position=center';
+	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
 
 	let animationLaunched = false;
 
@@ -40,6 +41,9 @@
 		animationLaunched = true;
 	}}
 >
+	<!-- Visually hidden title -->
+	<VisuallyHiddenTitle headingLevel={2}>À propos de moi</VisuallyHiddenTitle>
+
 	<article class="profiler">
 		<div class="code1">
 			<div>Profiler_App</div>

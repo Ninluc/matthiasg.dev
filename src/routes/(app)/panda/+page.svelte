@@ -3,12 +3,16 @@
 	import ContentAfterBigTextSection from '$components/layout/main/contentSection/ContentAfterBigTextSection.svelte';
 	import ContentSection from '$components/layout/main/contentSection/base/ContentSection.svelte';
 	import Button from '$components/theme/Button.svelte';
+	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
 
 	export let data;
 </script>
 
-<ContentAfterBigTextSection
-	><iframe
+<ContentAfterBigTextSection>
+	<!-- Visually hidden title -->
+	<VisuallyHiddenTitle headingLevel={1}>Soutient à Hugo</VisuallyHiddenTitle>
+
+	<iframe
 		width="100%"
 		height="480px"
 		src="https://www.watchisup.fr/compte-a-rebours/embed/quitter-la-maison-2023-09-01-00-00?backgroundcolor=%23232328&color=%23d4d6d7"
@@ -18,6 +22,9 @@
 	/>
 </ContentAfterBigTextSection>
 <ContentSection id="donation">
+	<!-- Visually hidden title -->
+	<VisuallyHiddenTitle headingLevel={2}>Explications et donations</VisuallyHiddenTitle>
+
 	<p>...c'est le temps restant avant que Hugo ne se fasse expulser de son foyer.</p>
 	<p>Pour le soutenir, faites un don :</p>
 	<Button

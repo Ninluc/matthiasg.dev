@@ -2,12 +2,16 @@
 	import WorkArticle from './WorkArticle.svelte';
 	import type { WorksApi } from '$lib/types/worksApi';
 	import ContentAfterBigTextSection from '../ContentAfterBigTextSection.svelte';
+	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
 
 	export let works: WorksApi[] = [];
 	export const headingLevel: number = 3;
 </script>
 
 <ContentAfterBigTextSection id="some-projects">
+	<!-- Visually hidden title -->
+	<VisuallyHiddenTitle headingLevel={2}>Quelques projets que j'ai fait</VisuallyHiddenTitle>
+
 	<section class="works-container">
 		{#each works as work}
 			<WorkArticle {work} {headingLevel} />

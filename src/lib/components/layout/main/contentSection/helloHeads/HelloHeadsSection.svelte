@@ -13,6 +13,7 @@
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 	import ContentSection from '../base/ContentSection.svelte';
 	import { tweened, type Tweened } from 'svelte/motion';
+	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
 
 	const singleHeadThreshold = 600;
 
@@ -209,6 +210,9 @@
 <svelte:window bind:innerWidth={pageWidth} bind:innerHeight={pageHeight} bind:scrollY />
 
 <ContentSection class={$loadingFinished ? 'content-section__appear' : ''} id="hello-heads">
+	<!-- Visually hidden title -->
+	<VisuallyHiddenTitle headingLevel={1}>Page d'accueil</VisuallyHiddenTitle>
+
 	<!-- <div class="canva-container" bind:clientHeight={containerHeight} bind:clientWidth={containerWidth}>  -->
 	<Threlte.Canvas
 		rendererParameters={{ antialias: true }}

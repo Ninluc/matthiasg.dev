@@ -6,6 +6,7 @@
 	import ContentAfterBigTextSection from '../ContentAfterBigTextSection.svelte';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { setAckeeTracker, tracker } from '$stores/ackee';
+	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
 
 	export const headingLevel: number = 3;
 	const heading = 'h' + headingLevel.toString();
@@ -64,6 +65,9 @@
 </svelte:head> -->
 
 <ContentAfterBigTextSection id="contact" intersectionCallback={ackeeReached}>
+	<!-- Visually hidden title -->
+	<VisuallyHiddenTitle headingLevel={2}>Formulaire de contact</VisuallyHiddenTitle>
+
 	<form method="post" id="contact-form" use:enhance>
 		<!-- <p>Captcha : {$form["g-recaptcha-response"]}</p> -->
 		<!-- <SuperDebug data={$form} /> -->
