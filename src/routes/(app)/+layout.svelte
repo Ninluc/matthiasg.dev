@@ -8,7 +8,7 @@
 	import { loadingFinished } from '$stores/layout/loadingFinished';
 
 	import { browser, dev } from '$app/environment';
-	import { beforeNavigate } from '$app/navigation';
+	import { beforeNavigate, afterNavigate } from '$app/navigation';
 
 	import '../../app.scss';
 	import { beforeUpdate, onMount } from 'svelte';
@@ -72,18 +72,26 @@
 
 	let htmlTag: HTMLElement;
 
-	onMount(() => {
+	afterNavigate(() => {
+		// onMount(() => {
 		htmlTag = document.documentElement;
 
 		// Fix scrolling to fragment on page full reload
 		// Still didn't fix it when coming from another page
+		console.log('gonna scroll');
 		const hash = $page.url.hash;
-		const scrollTo = hash && document.getElementById(hash.slice(1));
+		let scrollTo = hash && document.getElementById(hash.slice(1, hash.length));
 		if (scrollTo) {
 			setTimeout(() => {
-				scrollTo.scrollIntoView();
-			}, 1);
+				scrollTo = hash && document.getElementById(hash.slice(1, hash.length));
+				scrollTo.scrollIntoView({
+					behavior: 'smooth',
+					block: 'start',
+					inline: 'nearest'
+				});
+			}, 500);
 		}
+		// });
 	});
 
 	$: {
