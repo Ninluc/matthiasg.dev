@@ -143,7 +143,7 @@
 
 		$removeFactor: $size-title * 0.1;
 		@for $i from 2 through 6 {
-			:global(h#{$i}) {
+			&>:global(h#{$i}) {
 				$y: $i - 2;
 				$z: $i - 2;
 				font-size: clamp(30px, ((($size-title - 3rem) - ($removeFactor * $y))), 6vw) !important;
@@ -180,6 +180,70 @@
 
 			@media only screen and (max-width: $screen-small) {
 				font-size: 14.4px;
+			}
+		}
+
+		// Admonitions
+		:global(div.admonition) {
+			$border-width: 5px;
+
+			margin: $gap-medium 0;
+			padding: $gap-medium $gap-medium $gap-medium $border-width + $theme-borderradius;
+
+			background-color: $color-secondary;
+
+			border-radius: $theme-borderradius;
+			border-left: solid $border-width $color-primary-500;
+
+			:global(.admonition-heading) {
+				// border-bottom: solid 3px $color-secondary-600;
+
+				:global(h6) {
+					$font-size: $size-main * 1.3; 
+
+					margin: 0;
+
+					font: $main;
+					font-size: $font-size;
+
+					color: $color-primary;
+
+					:global(span.admonition-icon) {
+						margin-right: $gap-small;
+
+						fill: $color-primary;
+
+						vertical-align: sub;
+
+						:global(svg) {
+							align-self: flex-end;
+
+							width: $font-size;
+							height: $font-size;
+						}
+					}
+				}
+			}
+		}
+
+		$admonitions: (
+			"example": $color-success,
+			"important": $color-tertiary,
+			"tip": $color-surface-300,
+			"note": $color-success-300,
+			"warning": $color-warning,
+			"danger": $color-error
+		);
+		@each $keyword, $color in $admonitions {
+			:global(.admonition-#{$keyword}) {
+				border-left-color: $color !important;
+				:global(h6) {
+					color: $color !important;
+
+					:global(span.admonition-icon) {
+						fill: $color !important;
+					}
+				}
 			}
 		}
 	}
