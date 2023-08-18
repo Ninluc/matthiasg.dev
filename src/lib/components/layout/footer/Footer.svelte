@@ -6,6 +6,10 @@
 
 	const icons = {
 		'github.svg': { href: 'https://github.com/Ninluc', alt: 'Github' },
+		'stackoverflow.svg': {
+			href: 'https://stackoverflow.com/users/13727920/ninluc',
+			alt: 'Stack overflow'
+		}
 	};
 	const iconsFolder: string = '/img/footerIcons/';
 
@@ -62,7 +66,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			column-gap: $gap-medium;
+			column-gap: min(42px, 10vw);
 		}
 
 		section.links-container {
