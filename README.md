@@ -10,7 +10,8 @@ The project is build using [svelte](https://svelte.dev/).
 
 ## State of the project
 
-The design has finished, I will first make the homepage.
+All the pages are done. Just need to add more projects...
+No major changes planned.
 
 ## Other
 
