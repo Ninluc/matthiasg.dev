@@ -14,7 +14,7 @@
 		transition: color $transition-time-small $transition-timingfunction,
 			transform $transition-time-small $transition-timingfunction;
 
-		&:hover {
+		&:hover, &:focus {
 			color: $color-tertiary-700;
 		}
 	}

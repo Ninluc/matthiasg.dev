@@ -157,7 +157,7 @@
 
 					transition: color $transition-time-small $transition-timingfunction;
 
-					&:hover {
+					&:hover, &:focus {
 						color: $color-tertiary-700;
 					}
 				}
@@ -173,7 +173,7 @@
 			}
 		}
 
-		&:hover {
+		&:hover, &:focus-within {
 			:global(picture:nth-child(2)) {
 				:global(img) {
 					opacity: 1 !important;

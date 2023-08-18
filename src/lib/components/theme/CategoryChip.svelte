@@ -27,7 +27,7 @@
 
 		transition: all $transition-time-small $transition-timingfunction;
 
-		&:hover {
+		&:hover, &:focus {
 			filter: brightness(0.9);
 		}
 

@@ -42,7 +42,7 @@
 
 		transition: all $transition-time-small $transition-timingfunction;
 
-		&:hover {
+		&:hover, &:focus {
 			color: #fff;
 		}
 

@@ -127,7 +127,7 @@
 				transform: skewX(-7deg);
 				transform-origin: bottom;
 
-				&:hover {
+				&:hover, &:focus {
 					transform: skewX(0deg);
 				}
 			}
