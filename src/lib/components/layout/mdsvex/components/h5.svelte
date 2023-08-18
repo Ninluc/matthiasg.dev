@@ -10,4 +10,4 @@
     })
 </script>
 
-<h5 {...$$restProps} bind:this={title}><slot /></h5>
+<h6 {...$$restProps} bind:this={title}><slot /></h6>

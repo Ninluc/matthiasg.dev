@@ -10,7 +10,7 @@
 </script>
 
 <TitleHeader>
-	<h2>{data.title}</h2>
+	<h1>{data.title}</h1>
 	<div class="work-info-container">
 		<div class="work-info">
 			<CategoryChip category={data.category} />
@@ -44,7 +44,7 @@
 	@use 'sass:math';
 
 	// Header
-	h2 {
+	h1 {
 		width: 100%;
 
 		margin: 0;
@@ -108,6 +108,7 @@
 	:global(article.work-content) {
 		width: 100%;
 
+		:global(h2),
 		:global(h3),
 		:global(h4),
 		:global(h5),
@@ -141,9 +142,9 @@
 		}
 
 		$removeFactor: $size-title * 0.1;
-		@for $i from 3 through 6 {
+		@for $i from 2 through 6 {
 			:global(h#{$i}) {
-				$y: $i - 3;
+				$y: $i - 2;
 				$z: $i - 2;
 				font-size: clamp(30px, ((($size-title - 3rem) - ($removeFactor * $y))), 6vw) !important;
 				// font-size: ($size-title - 3) - ($removeFactor * $y);
