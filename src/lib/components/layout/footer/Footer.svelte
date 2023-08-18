@@ -5,7 +5,7 @@
 	import FooterIcon from './FooterIcon.svelte';
 
 	const icons = {
-		'github-mark.svg': { href: 'https://github.com/Ninluc', alt: 'Github' }
+		'github.svg': { href: 'https://github.com/Ninluc', alt: 'Github' },
 	};
 	const iconsFolder: string = '/img/footerIcons/';
 
