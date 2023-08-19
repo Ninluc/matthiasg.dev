@@ -4,8 +4,6 @@
 	import ContentSection from '$components/layout/main/contentSection/base/ContentSection.svelte';
 	import Button from '$components/theme/Button.svelte';
 	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
-
-	export let data;
 </script>
 
 <ContentAfterBigTextSection>
