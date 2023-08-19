@@ -1,5 +1,27 @@
 import { readable, type Readable } from 'svelte/store';
 
+// Types
+export type LinkParameters = { [paramName: string]: string };
+
+export type InternalSubLink =
+	| {
+			subId: string;
+	  }
+	| {
+			params: LinkParameters;
+	  }
+	| {
+			subId: string;
+			params: LinkParameters;
+	  };
+
+export type ExternalSubLink = {
+	subLink: string;
+};
+export type SubLink = {
+	subTitle: string;
+} & (InternalSubLink | ExternalSubLink);
+
 export interface Page {
 	pageName: string;
 	path: string;
@@ -7,17 +29,8 @@ export interface Page {
 	displayOnHeader?: boolean;
 	sub?: SubLink[];
 }
-export type SubLink = {
-	subTitle: string;
-} & (
-	| {
-			subId: string;
-	  }
-	| {
-			subLink: string;
-	  }
-);
 
+// Stores
 export const pages: Readable<Page[]> = readable([
 	{
 		pageName: 'Accueil',
@@ -45,15 +58,15 @@ export const pages: Readable<Page[]> = readable([
 		sub: [
 			{
 				subTitle: 'Projets personnels',
-				subId: 'personal'
+				params: { category: 'personnel' }
 			},
 			{
 				subTitle: 'Projets scolaires',
-				subId: 'school'
+				params: { category: 'scolaire' }
 			},
 			{
 				subTitle: 'Projets professionnel',
-				subId: 'professional'
+				params: { category: 'profesionnel' }
 			}
 		]
 	},

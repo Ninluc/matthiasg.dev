@@ -1,16 +1,33 @@
 <script lang="ts">
 	import TextLink from '$components/theme/TextLink.svelte';
-	import type { Page, SubLink } from '$stores/layout/pages';
+	import type { Page, SubLink, LinkParameters } from '$stores/layout/pages';
 
 	export let categoryTitle: string = '';
 	export let links: Page[];
 
 	function getLinkForSub(link: Page, sub: SubLink): string {
-		if ('subId' in sub) {
-			return link.path + (link.path.endsWith('/') ? '#' : '/#') + sub.subId;
+		if ('subId' in sub || 'params' in sub) {
+			let linkString = link.path;
+
+			if ('subId' in sub) {
+				linkString += (link.path.endsWith('/') ? '#' : '/#') + sub.subId;
+			}
+			if ('params' in sub) {
+				linkString += '?' + paramsToUrlString(sub.params as LinkParameters);
+			}
+
+			return linkString;
 		} else {
 			return sub.subLink;
 		}
+	}
+
+	function paramsToUrlString(params: LinkParameters) {
+		let paramsString = '';
+		for (const [key, value] of Object.entries(params)) {
+			paramsString += `${key}=${value}&`;
+		}
+		return paramsString.slice(0, -1);
 	}
 </script>
 
