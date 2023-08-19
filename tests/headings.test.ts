@@ -12,17 +12,30 @@ test('correct heading order', async ({ page }) => {
 
 	// Generate the URLs for the pages
 	const urlsToTest = pageFiles.map((file: string) => {
-		const pagePath = file.replace(/^src\/routes/, '').replace(/\+page.svelte$/, '');
+		const pagePath = file
+			.replace(/^src\/routes/, '')
+			// Replace if app grouping
+			.replace(/\(app\)\//, '')
+			// Replace if slug (won't work if I use another slug somewhere else or I change the page slug
+			.replace(/\[slug\]/, 'matthiasg-dev')
+			.replace(/\+page.svelte$/, '');
+		// .slice(0, -1);
 		// return `http://localhost:5173${pagePath}`;
 		return pagePath;
 	});
 
 	for (const url of urlsToTest) {
 		// Navigate to the page
-		await page.goto(url, {
-			timeout: 4000,
-			waitUntil: 'networkidle'
-		});
+		await page
+			.goto('localhost:4173' + url, {
+				timeout: 4000,
+				waitUntil: 'networkidle'
+			})
+			.catch((e) => {
+				console.error(e);
+				// Fail the test if the page fails to load
+				expect(e).toBeNull();
+			});
 
 		// Get all the headings on the page
 		const headings = await page.$$eval('h1, h2, h3, h4, h5, h6', (elements) =>
