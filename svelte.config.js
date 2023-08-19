@@ -51,7 +51,7 @@ const config = {
 			precompress: true
 		}),
 		prerender: {
-			handleMissingId: 'warn',
+			handleMissingId: 'ignore',
 			handleHttpError: 'fail'
 		},
 		alias: {
