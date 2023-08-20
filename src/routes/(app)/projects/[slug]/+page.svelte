@@ -127,7 +127,8 @@
 				transform: skewX(-7deg);
 				transform-origin: bottom;
 
-				&:hover, &:focus {
+				&:hover,
+				&:focus {
 					transform: skewX(0deg);
 				}
 			}
@@ -143,7 +144,7 @@
 
 		$removeFactor: $size-title * 0.1;
 		@for $i from 2 through 6 {
-			&>:global(h#{$i}) {
+			& > :global(h#{$i}) {
 				$y: $i - 2;
 				$z: $i - 2;
 				font-size: clamp(30px, ((($size-title - 3rem) - ($removeFactor * $y))), 6vw) !important;
@@ -199,7 +200,7 @@
 				// border-bottom: solid 3px $color-secondary-600;
 
 				:global(h6) {
-					$font-size: $size-main * 1.3; 
+					$font-size: $size-main * 1.3;
 
 					margin: 0;
 
@@ -227,12 +228,12 @@
 		}
 
 		$admonitions: (
-			"example": $color-success,
-			"important": $color-tertiary,
-			"tip": $color-surface-300,
-			"note": $color-success-300,
-			"warning": $color-warning,
-			"danger": $color-error
+			'example': $color-success,
+			'important': $color-tertiary,
+			'tip': $color-surface-300,
+			'note': $color-success-300,
+			'warning': $color-warning,
+			'danger': $color-error
 		);
 		@each $keyword, $color in $admonitions {
 			:global(.admonition-#{$keyword}) {
