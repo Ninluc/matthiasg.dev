@@ -10,7 +10,7 @@
 </script>
 
 {#if isLocalImage}
-	<Img src={img} {alt} height="unset" />
+	<Img src={img} {alt} height="auto" />
 {:else}
 	<img {src} {alt} loading="lazy" />
 {/if}
