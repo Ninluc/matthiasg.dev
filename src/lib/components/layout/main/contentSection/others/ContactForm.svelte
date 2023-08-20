@@ -20,7 +20,6 @@
 	const { form, errors, enhance, constraints, delayed } = superForm(formData, {
 		onUpdated({ form }) {
 			if (form.valid) {
-				console.log('Form is valid');
 				formIsValid = true;
 			}
 		},

@@ -78,13 +78,12 @@
 
 		// Fix scrolling to fragment on page full reload
 		// Still didn't fix it when coming from another page
-		console.log('gonna scroll');
 		const hash = $page.url.hash;
 		let scrollTo = hash && document.getElementById(hash.slice(1, hash.length));
 		if (scrollTo) {
 			setTimeout(() => {
 				scrollTo = hash && document.getElementById(hash.slice(1, hash.length));
-				scrollTo.scrollIntoView({
+				scrollTo?.scrollIntoView({
 					behavior: 'smooth',
 					block: 'start',
 					inline: 'nearest'
