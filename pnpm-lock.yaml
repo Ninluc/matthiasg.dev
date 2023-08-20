@@ -29,9 +29,6 @@ dependencies:
   three:
     specifier: 0.148.0
     version: 0.148.0
-  tweakpane:
-    specifier: ^3.1.10
-    version: 3.1.10
 
 devDependencies:
   '@playwright/test':
@@ -109,6 +106,9 @@ devDependencies:
   tslib:
     specifier: ^2.6.2
     version: 2.6.2
+  tweakpane:
+    specifier: ^3.1.10
+    version: 3.1.10
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
@@ -2957,7 +2957,7 @@ packages:
 
   /tweakpane@3.1.10:
     resolution: {integrity: sha512-rqwnl/pUa7+inhI2E9ayGTqqP0EPOOn/wVvSWjZsRbZUItzNShny7pzwL3hVlaN4m9t/aZhsP0aFQ9U5VVR2VQ==}
-    dev: false
+    dev: true
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
