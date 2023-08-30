@@ -23,8 +23,8 @@ export async function load({ fetch, url }) {
 	return {
 		works: works,
 		seo: {
-			title: 'Mes projets',
-			description: 'Découvrez mes projets et mes réalisations'
+			title: category ? 'Mes projets - ' + category : 'Mes projets',
+			description: 'Découvrez les projets et réalisations de Matthias Guillitte.'
 		}
 	};
 }
