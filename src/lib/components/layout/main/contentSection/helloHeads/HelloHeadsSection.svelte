@@ -250,7 +250,7 @@
 		/> -->
 		<ThretleExtras.GLTF url="assets/3d/davidHead.glb" useDraco="true" {...head} />
 		{#if pageWidth > singleHeadThreshold}
-			<ThretleExtras.GLTF url="assets/3d/davidHead.glb" {...head2} />
+			<ThretleExtras.GLTF url="assets/3d/davidHead.glb" useDraco="true" {...head2} />
 		{/if}
 	</Threlte.Canvas>
 	<!-- </div> -->
