@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /projects?*
+Sitemap: https://matthiasg.dev/sitemap.xml

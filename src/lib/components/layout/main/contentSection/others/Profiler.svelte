@@ -46,8 +46,8 @@
 
 	<article class="profiler">
 		<div class="code1">
-			<div>Profiler_App</div>
-			<div>V0.2xx[beta]</div>
+			<div data-nosnippet>Profiler_App</div>
+			<div data-nosnippet>V0.2xx[beta]</div>
 		</div>
 
 		<div class="photo">
@@ -56,7 +56,9 @@
 
 		<div class="code2">
 			{#if animationLaunched}
-				<div in:write={{ speed: 1, delay: basicDelay + 300 }}>{randomAbstractCodeText}</div>
+				<div in:write={{ speed: 1, delay: basicDelay + 300 }} data-nosnippet>
+					{randomAbstractCodeText}
+				</div>
 				<div />
 			{/if}
 		</div>
@@ -71,7 +73,7 @@
 						trailingRdCharacterMaxNumber: 3
 					}}
 				>
-					Guillitte, Matthias
+					<h3>Guillitte, Matthias</h3>
 				</div>
 				<div
 					in:charTyping={{

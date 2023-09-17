@@ -51,12 +51,12 @@
 		<!-- {/await} -->
 	</div>
 	<div class="text-container">
-		<svelte:element this={heading} class="work-title">{work.title}</svelte:element>
+		<svelte:element this={heading} class="work-title" data-nosnippet>{work.title}</svelte:element>
 
 		<!-- <p class="description">{@html work.description}</p>-->
 		<!-- CHANGEME when update fix the @html issue https://github.com/kelvinsjk/sveltekitHTMLTag -->
 		<!-- Bug description : The description doesn't 'swap' with the rest of the content -->
-		<p class="description">{work.description}</p>
+		<p class="description" data-nosnippet>{work.description}</p>
 
 		<div class="button-container">
 			{#if work.projectLink}

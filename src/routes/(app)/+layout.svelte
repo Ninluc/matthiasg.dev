@@ -36,7 +36,9 @@
 	// - Description
 	let currentDescription: string | undefined;
 	$: currentDescription = $page.data.seo?.description;
-	$: currentDescription = currentDescription ?? 'Portfolio de Matthias Guillitte, développeur';
+	$: currentDescription =
+		currentDescription ??
+		'Portfolio de Matthias Guillitte, développeur et étudiant en informatique en Belgique.';
 	// - Image
 	let currentImage: string | undefined;
 	$: currentImage = $page.data.seo?.image;
