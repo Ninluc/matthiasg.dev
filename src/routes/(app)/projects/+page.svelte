@@ -13,7 +13,9 @@
 
 	<div class="filters-container">
 		<!-- Visually hidden title -->
-		<VisuallyHiddenTitle headingLevel={2}>Filtrer par catégorie de projet</VisuallyHiddenTitle>
+		<VisuallyHiddenTitle headingLevel={2} data-nosnippet
+			>Filtrer par catégorie de projet</VisuallyHiddenTitle
+		>
 
 		<nav class="filters">
 			<CategoryFilterChip category="tous" />

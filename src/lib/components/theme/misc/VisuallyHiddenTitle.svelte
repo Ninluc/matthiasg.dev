@@ -3,4 +3,4 @@
 	const heading = 'h' + headingLevel.toString();
 </script>
 
-<svelte:element this={heading} class="visually-hidden"><slot /></svelte:element>
+<svelte:element this={heading} class="visually-hidden" {...$$restProps}><slot /></svelte:element>

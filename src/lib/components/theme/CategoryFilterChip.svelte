@@ -20,6 +20,7 @@
 	style="--background-color: {categoryColors[category].background}; --hover-color: {categoryColors[
 		category
 	].color};"
+	data-nosnippet
 >
 	#{category}
 </a>
@@ -42,7 +43,8 @@
 
 		transition: all $transition-time-small $transition-timingfunction;
 
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			color: #fff;
 		}
 
