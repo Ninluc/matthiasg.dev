@@ -64,7 +64,10 @@
 					href={work.projectLink}
 					colorType="secondary"
 					target="blank"
-					rel="noopener noreferrer external">Accéder au site</Button
+					rel="noopener noreferrer external"
+					>{@html work.projectLink.startsWith('https://github.com/')
+						? 'Accéder au dépôt'
+						: 'Accéder au site'}</Button
 				>
 			{/if}
 			<Button href="/projects/{work.slug}" type="cta">Lire plus</Button>
@@ -157,7 +160,8 @@
 
 					transition: color $transition-time-small $transition-timingfunction;
 
-					&:hover, &:focus {
+					&:hover,
+					&:focus {
 						color: $color-tertiary-700;
 					}
 				}
@@ -173,7 +177,8 @@
 			}
 		}
 
-		&:hover, &:focus-within {
+		&:hover,
+		&:focus-within {
 			:global(picture:nth-child(2)) {
 				:global(img) {
 					opacity: 1 !important;

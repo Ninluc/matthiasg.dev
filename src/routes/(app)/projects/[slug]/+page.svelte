@@ -27,7 +27,10 @@
 					href={data.projectLink}
 					colorType="cta"
 					target="blank"
-					rel="noopener noreferrer external">Accéder au site</Button
+					rel="noopener noreferrer external"
+					>{data.projectLink.startsWith('https://github.com/')
+						? 'Accéder au dépôt'
+						: 'Accéder au site'}</Button
 				>
 			{/if}
 		</div>
