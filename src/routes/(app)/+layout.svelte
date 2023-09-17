@@ -32,7 +32,9 @@
 	// - Title
 	let currentTitle: string | undefined;
 	$: currentTitle = $page.data.seo?.title;
-	$: currentTitle = currentTitle ? `${currentTitle} | matthiasg.dev` : 'matthiasg.dev';
+	$: currentTitle = currentTitle
+		? `${currentTitle} | matthiasg.dev`
+		: 'Matthias Guillitte | matthiasg.dev';
 	// - Description
 	let currentDescription: string | undefined;
 	$: currentDescription = $page.data.seo?.description;
