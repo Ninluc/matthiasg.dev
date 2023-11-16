@@ -31,7 +31,7 @@
 		"@types/three": "0.148.0",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
-		"@zerodevx/svelte-img": "^1.2.11",
+		"@zerodevx/svelte-img": "^2.1.0",
 		"date-fns": "^2.30.0",
 		"eslint": "^8.47.0",
 		"eslint-config-prettier": "^8.10.0",
