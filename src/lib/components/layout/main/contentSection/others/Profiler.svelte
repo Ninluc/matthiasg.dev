@@ -6,7 +6,7 @@
 	import { charTyping } from '$components/theme/transition/charTyping';
 	import { onMount } from 'svelte';
 
-	import image from '../../../../../assets/photos/me.jpg?run&width=208&height=241&fit=cover&position=center';
+	import image from '../../../../../assets/photos/me.jpg?as=run&w=208&h=241&fit=cover&position=center';
 	import VisuallyHiddenTitle from '$components/theme/misc/VisuallyHiddenTitle.svelte';
 
 	let animationLaunched = false;

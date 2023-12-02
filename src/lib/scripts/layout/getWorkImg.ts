@@ -8,7 +8,7 @@ export function getWorkDocImage(image: string): Image | undefined {
 	const imageFiles: ImageFiles = import.meta.glob(
 		'../../../works/img/**/*.+(jpg|jpeg|png|gif|svg|webp)',
 		{
-			query: { run: '', withoutEnlargement: true },
+			query: { as: 'run', withoutEnlargement: true },
 			eager: true
 		}
 	);

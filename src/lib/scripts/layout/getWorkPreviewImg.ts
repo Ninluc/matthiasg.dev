@@ -21,7 +21,7 @@ export type ImageFiles = Record<string, { default: Image }>;
 export function getWorkPreviewImage(workSlug: string): Image | undefined {
 	// Get all images with a name like the workSlug
 	const imageFiles: ImageFiles = import.meta.glob('../../../works/*.+(jpg|jpeg|png|gif|svg|webp)', {
-		query: { run: '' },
+		query: { as: 'run' },
 		eager: true
 	});
 
