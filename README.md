@@ -4,14 +4,16 @@ Personnal website/portfolio hosted on a raspberry pi.
 
 [![Homepage looks](./docs/img/homePage.png)](https://matthiasg.dev)
 
-This is the source code of my new website, the code on the website is the old one.
+This is the source code of my new website.
 
 The project is build using [svelte](https://svelte.dev/).
 
+The website is in french.
+It contains some "article" that can be written in [Markdown](https://www.markdownguide.org/)
+
 ## State of the project
 
-All the pages are done. Just need to add more projects...
-No major changes planned.
+The project is finished. Hourray 🥳 !
 
 ## Other
 
