@@ -40,7 +40,7 @@
 	});
 
 	// Ackee
-	function ackeeReached() {
+	async function ackeeReached() {
 		if (browser) {
 			if (!$tracker) {
 				setAckeeTracker();
