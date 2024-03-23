@@ -31,6 +31,6 @@ const thisProjectCodeTimeHref =
 const facts = [
 	"A appris l'HTML sur <a target='_blank' href='https://www.codecademy.com/learn/learn-html'>codecademy</a> en 2013",
 	"A appris le CSS sur <a target='_blank' href='https://www.codecademy.com/learn/learn-css'>codecademy</a> en 2013",
-	`${(await getCodeTime(codeTimeHref)) ?? 'Plus de 1000hr'} de code depuis le 1er janvier 2023`,
+	`${(await getCodeTime(codeTimeHref)) ?? 'Plus de 1000hr'} sur vscode depuis le 1er janvier 2023`,
 	`${(await getCodeTime(thisProjectCodeTimeHref)) ?? 'Plus de 50hr'} passées sur ce projet`
 ];
