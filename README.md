@@ -1,4 +1,4 @@
-[![Services Health](https://npal1883nmtt.montastic.io/badge)](https://npal1883nmtt.montastic.io)
+[![Website health](https://matthiasg.montastic.io/badge)](https://matthiasg.montastic.io)
 # [matthiasg.dev](https://matthiasg.dev)
 
 Personnal website/portfolio hosted on a raspberry pi.
