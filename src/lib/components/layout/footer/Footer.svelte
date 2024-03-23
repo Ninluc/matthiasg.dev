@@ -5,10 +5,14 @@
 	import FooterIcon from './FooterIcon.svelte';
 
 	const icons = {
-		'github.svg': { href: 'https://github.com/Ninluc', alt: 'Github' },
 		'stackoverflow.svg': {
 			href: 'https://stackoverflow.com/users/13727920/ninluc',
 			alt: 'Stack overflow'
+		},
+		'github.svg': { href: 'https://github.com/Ninluc', alt: 'Github' },
+		'linkedin.svg': {
+			href: 'https://www.linkedin.com/in/matthias-guillitte-9046ab293',
+			alt: 'Linkedin'
 		}
 	};
 	const iconsFolder: string = '/img/footerIcons/';
