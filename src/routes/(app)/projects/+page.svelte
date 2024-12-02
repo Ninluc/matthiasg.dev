@@ -21,7 +21,7 @@
 			<CategoryFilterChip category="tous" />
 			<CategoryFilterChip category="personnel" />
 			<CategoryFilterChip category="scolaire" />
-			<CategoryFilterChip category="profesionnel" />
+			<CategoryFilterChip category="professionnel" />
 		</nav>
 	</div>
 </TitleHeader>

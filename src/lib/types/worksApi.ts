@@ -1,4 +1,4 @@
-export type ProjectType = 'personnel' | 'profesionnel' | 'scolaire' | 'tous';
+export type ProjectType = 'personnel' | 'professionnel' | 'scolaire' | 'tous';
 
 export type WorksApi = {
 	title: string;
