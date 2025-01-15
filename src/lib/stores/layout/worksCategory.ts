@@ -10,7 +10,7 @@ export const categoryColors: {
 		background: '#567c78',
 		color: '#d4d6d7'
 	},
-	profesionnel: {
+	professionnel: {
 		background: '#EAB308',
 		color: '#000000'
 	},
