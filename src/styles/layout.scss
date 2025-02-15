@@ -4,12 +4,10 @@
 
 // HELLO BIG HEADS
 main>div>.content-section:first-child {
-    background: linear-gradient(180deg, th.$color-completelyblack, th.$color-surface, th.$color-surface);
+    position: relative;
 
     &#hello-heads {
         height: calc(100vh - clamp(51px, 2vh, 50vh));
-
-        position: relative;
     }
 
     /* div.canva-container {
@@ -49,6 +47,27 @@ main>div>.content-section:first-child {
 
         transform: translate(-50%, -50%);
     }
+
+    /* top gradient*/
+    &::after {
+        content: '';
+        position: absolute;
+        // top: clamp(51px, 2vh, 50vh);
+        top: 0;
+        left: 0;
+        width: 100dvw;
+        height: 100dvh;
+
+        z-index: 1;
+
+        background: linear-gradient(180deg, th.$color-completelyblack, th.$color-surface, th.$color-surface);
+        // mix-blend-mode: overlay;
+    }
+}
+
+
+main * {
+    z-index: 2; // Or everything would be behind the top gradient
 }
 
 main {
@@ -60,6 +79,8 @@ main {
         // REMOVEME
         font-size: x-large;
 
+        background-color: th.$color-surface;
+
         &>* {
             max-width: min(calc(100% - th.$gap-big), 28.5cm);
         }
@@ -69,9 +90,4 @@ main {
             padding: $padding-top 0 ($padding-top * 2) 0;
         }
     }
-}
-
-// DEV
-.tp-dfwv {
-    transform: translateY(100px);
 }

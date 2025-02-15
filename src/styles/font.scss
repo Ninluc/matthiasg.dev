@@ -11,6 +11,7 @@ $style-main: normal;
 $lineheight-main: 1.1;
 $letterspacing-main: -0.1rem;
 $main: $style-main $weight-main list.slash($size-main, $lineheight-main) $family-main;
+
 /* Main links */
 $family-linkmain: th.$font-family-base;
 $size-linkmain: th.$font-size-base;
