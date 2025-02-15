@@ -32,7 +32,8 @@
 		randomFact = await getRandomFact();
 	});
 
-	const age = new Date().getFullYear() - 2003;
+	const birhtday = new Date(2003, 3, 2);
+	const age = new Date(Date.now() - birhtday.getTime()).getFullYear() - 1970;
 </script>
 
 <ContentAfterBigTextSection

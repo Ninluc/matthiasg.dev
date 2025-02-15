@@ -1,7 +1,3 @@
-<script>
-	import ContentSectionAppearOnce from './base/ContentSectionAppearOnce.svelte';
-</script>
-
 <header class="content-section">
 	<slot />
 </header>
