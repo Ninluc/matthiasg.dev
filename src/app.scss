@@ -27,6 +27,10 @@ html {
 }
 
 body {
+	background-color: $color-completelyblack;
+}
+
+main>div>.content-section {
 	background-color: $color-surface;
 }
 
