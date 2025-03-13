@@ -24,7 +24,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install playwright browsers
-        run: npx playwright install
+        run: npx playwright install && npx playwright install-deps
 
       - name: Run tests
         run: DISCORD_WEBHOOK=${{ env.DISCORD_WEBHOOK }} VITE_ACKEE_DOMAIN=${{ env.VITE_ACKEE_DOMAIN }} VITE_ACKEE_ACTION__REACHED_CONTACT=${{ env.VITE_ACKEE_ACTION__REACHED_CONTACT }} npm run test
