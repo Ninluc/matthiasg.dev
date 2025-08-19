@@ -109,7 +109,7 @@
 						trailingRdCharacterMaxNumber: 3
 					}}
 				>
-					Statut: Étudiant à Helmo
+					Statut: Étudiant à HEPL
 				</div>
 			{/if}
 		</div>
