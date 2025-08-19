@@ -69,17 +69,5 @@ export const pages: Readable<Page[]> = readable([
 				params: { category: 'profesionnel' }
 			}
 		]
-	},
-	{
-		pageName: 'Hugo',
-		path: '/panda',
-		title: 'Soutien à Hugo',
-		displayOnHeader: false,
-		sub: [
-			{
-				subTitle: 'Faire un don',
-				subId: 'donation'
-			}
-		]
 	}
 ]);
