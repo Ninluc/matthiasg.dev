@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { UmamiAnalytics } from '@lukulent/svelte-umami';
 	import { page } from '$app/stores';
 	import Header from '$components/layout/header/Header.svelte';
 	import Footer from '$components/layout/footer/Footer.svelte';
@@ -13,7 +14,6 @@
 	import '../../app.scss';
 	import { beforeUpdate, onMount } from 'svelte';
 	import { pageToIsBefore } from '$lib/scripts/layout/pageToIsBefore';
-	import { setAckeeTracker, tracker } from '$stores/ackee';
 
 	export let data;
 
@@ -66,13 +66,6 @@
 			loadingFinished.set(true);
 		}
 	});
-
-	if (browser) {
-		if (!$tracker) {
-			setAckeeTracker();
-		}
-		$tracker?.record(import.meta.env.VITE_ACKEE_DOMAIN);
-	}
 
 	let htmlTag: HTMLElement;
 
@@ -131,6 +124,12 @@
 	<meta name="twitter:card" content={currentTwitterCardType} />
 	<meta name="twitter:site" content={$page.url.toString()} />
 	<meta name="twitter:creator" content="datboi_master" />
+
+	<script
+		defer
+		src="https://analytics.matthiasg.dev/recorder.js"
+		data-website-id="a97adced-b9c3-4832-8821-996373bd54bf"
+	></script>
 </svelte:head>
 
 <svelte:document class:disable-scroll={!$loadingFinished && activateLoadingScreen} />
@@ -152,6 +151,19 @@
 </main>
 
 <Footer />
+
+<UmamiAnalytics
+	websiteID="a97adced-b9c3-4832-8821-996373bd54bf"
+	srcURL="https://abcd.matthiasg.dev/script.js"
+	configuration={{
+		'data-auto-track': true,
+		'data-domains': 'matthiasg.dev, www.matthiasg.dev',
+		'data-cache': true,
+		'data-performance': true,
+		'data-exclude-search': false,
+		'data-exclude-hash': false
+	}}
+/>
 
 <style lang="scss">
 	main {

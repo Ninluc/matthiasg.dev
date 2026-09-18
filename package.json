@@ -19,6 +19,7 @@
 		"test:unit": "vitest"
 	},
 	"devDependencies": {
+		"@lukulent/svelte-umami": "^0.0.4",
 		"@playwright/test": "^1.45.3",
 		"@sveltejs/adapter-auto": "^2.1.1",
 		"@sveltejs/adapter-node": "^1.3.1",
@@ -26,7 +27,6 @@
 		"@threlte/core": "5.0.8",
 		"@threlte/extras": "4.9.3",
 		"@tweakpane/core": "^1.1.9",
-		"@types/ackee-tracker": "^5.0.4",
 		"@types/glob": "^8.1.0",
 		"@types/three": "0.148.0",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -52,7 +52,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"ackee-tracker": "^5.1.0",
 		"altcha": "^0.6.7",
 		"altcha-lib": "^0.5.1",
 		"dotenv": "^16.4.5",
