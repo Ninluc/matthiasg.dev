@@ -13,8 +13,8 @@
 
 	const basicDelay = 30;
 
-	const abstractCodeText = '∗∗∗-';
-	let randomAbstractCodeText = getStringFromChars(abstractCodeText, 2, 8);
+	const abstractCodeText = '∗∗∗-_';
+	let randomAbstractCodeText = getStringFromChars(abstractCodeText, 3, 10);
 
 	const mainAstractCharacters = '$X*x%/-_:';
 	const typingSpeed = 3;
@@ -47,7 +47,7 @@
 
 	<article class="profiler">
 		<div class="code1">
-			<div data-nosnippet>Profiler_App</div>
+			<div data-nosnippet>CtOS_Profiler</div>
 			<div data-nosnippet>V0.2xx[beta]</div>
 		</div>
 
@@ -119,6 +119,7 @@
 <style lang="scss">
 	article.profiler {
 		width: 100%;
+		position: relative;
 
 		display: grid;
 		grid-template-columns: 0.258fr $gap-medium 1fr;
@@ -184,7 +185,10 @@
 			}
 		}
 		.code2 {
-			grid-area: 4 / 1 / 6 / 2;
+			position: absolute;
+			top: 323px;
+			left: 0;
+			width: 20.5%;
 
 			div:nth-child(2) {
 				height: 28px;
@@ -248,6 +252,10 @@
 
 		@media only screen and (max-width: $screen-xsmall) {
 			grid-template-columns: 30% $gap-medium 70%;
+			.code2 {
+				position: static;
+				width: auto;
+			}
 
 			.white-text {
 				div:nth-child(2) {
