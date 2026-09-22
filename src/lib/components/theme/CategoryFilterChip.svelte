@@ -14,7 +14,7 @@
 
 <a
 	data-sveltekit-noscroll
-	href="./projects?category={category}"
+	href="/projects?category={category}"
 	class="category"
 	class:current={isCurrentCategory}
 	style="--background-color: {categoryColors[category].background}; --hover-color: {categoryColors[
