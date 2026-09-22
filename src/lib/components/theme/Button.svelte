@@ -65,5 +65,10 @@
 				transform: skewX(0deg);
 			}
 		}
+
+		&:disabled {
+			opacity: 0.5;
+			cursor: wait;
+		}
 	}
 </style>
