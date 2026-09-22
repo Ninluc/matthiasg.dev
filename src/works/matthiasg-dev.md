@@ -4,7 +4,7 @@ category: personnel
 date: '2023-08-09'
 projectDate: "juin 2023 - aujourd'hui"
 # projectLink: '/'
-description: 'Ce site ! Un portfolio qui me sert aussi de site personnel. Fais avec svelte et hébergé sur mon raspberry pi.'
+description: 'Ce site ! Un portfolio qui me sert aussi de site personnel. Fait avec Svelte et hébergé sur mon Raspberry Pi.'
 ---
 
 Ce site est un remplacement de mon ancien portfolio :
@@ -22,7 +22,7 @@ J’ai donc tenté, par ce site, de me représenter (subtilement, le site parle 
 
 J’ai commencé par faire des listes de ce que je voulais dans ce site. J’ai pris de l’inspiration de portfolios d'autres développeurs, mais également de designer (souvent plus intéressants). J'ai aussi choisi de la faire avec mon premier framework : [SvelteKit](https://kit.svelte.dev/).
 
-Ensuite est venue la partie du design. Je voulais le faire sur une alternative open source et gratuite à [Figma](https://www.figma.com/). J'ai alors trouvé [Penpot](https://penpot.app/), mais après l'avoir utilisé pour tout ce projet, je ne suis pas très content du produit. Il n'existe qu'en version web (à part des packages obsolètes), le programme enlève des éléments sans que vous fassiez et `ctrl+z` ne fonctionne pas tout le temps. D'un autre côté, c'est un très beau projet maintenu qui utilise le SVG pour une meilleure compatibilité ([source](https://github.com/penpot/penpot#open-standardsw)).
+Ensuite est venue la partie du design. Je voulais le faire sur une alternative open source et gratuite à [Figma](https://www.figma.com/). J'ai alors trouvé [Penpot](https://penpot.app/), mais après l'avoir utilisé pour tout ce projet, je ne suis pas très content du produit. Il n'existe qu'en version web (à part des packages obsolètes), le programme enlève des éléments sans que vous fassiez et `ctrl+z` ne fonctionne pas tout le temps. Néanmoins, c'est un très beau projet maintenu qui utilise le SVG pour une meilleure compatibilité ([source](https://github.com/penpot/penpot)).
 
 *[SCSS]: Sassy CSS
 
@@ -30,7 +30,7 @@ Une fois le design fait, j'ai commencé par faire les constantes [SCSS](https://
 
 # Transitions entre les pages
 
-Comme je l'ai dit dans le [TFE 2021-2022](./tfe-2021-2022#transitions-entre-les-pages), j'adore les transitions entre les pages. C'est d'ailleurs un des premiers points notés dans mes listes de choses que je voulais dans ce site.
+Comme je l'ai dit dans le [TFE 2021-2022](/projects/tfe-2021-2022#transitions-entre-les-pages), j'adore les transitions entre les pages. C'est d'ailleurs un des premiers points notés dans mes listes de choses que je voulais dans ce site.
 
 *[SPA]: Single Page Application
 
