@@ -109,7 +109,7 @@
 						trailingRdCharacterMaxNumber: 3
 					}}
 				>
-					Statut: Étudiant à HEPL
+					Statut: Étudiant en master en architecture des systèmes informatiques à la HEPL
 				</div>
 			{/if}
 		</div>
