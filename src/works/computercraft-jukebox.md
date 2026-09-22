@@ -1,7 +1,7 @@
 ---
 title: Stockage "Jukebox"
 category: personnel
-date: '08/08/2023'
+date: '2023-08-08'
 projectDate: "Janvier 2023"
 projectLink: 'https://github.com/Ninluc/ComputerCraft-Jukebox-Storage'
 description: 'Un stockage "Jukebox" créé dans Minecraft à l''aide du mod "ComputerCraft:Tweaked".'

@@ -1,7 +1,7 @@
 ---
 title: Gamehub
 category: scolaire
-date: '03/02/2025'
+date: '2025-02-03'
 projectDate: 'Septembre - Décembre 2024'
 projectLink: 'https://gamehub.matthiasg.dev'
 description: "Plateforme communautaire dédiée aux joueurs, intégrant un forum, un chat et des événements, avec un système de gamification incluant de l'XP et des succès à débloquer."
@@ -34,6 +34,8 @@ Gamehub repose sur un stack moderne combinant plusieurs technologies pour offrir
 
 Ce choix technologique nous a permis de créer une plateforme robuste, évolutive et agréable à utiliser pour les joueurs.
 
-:::info Info  
+---
+
+:::note Info  
 Envie d'en voir plus ? Rendez-vous sur [gamehub.matthiasg.dev](https://gamehub.matthiasg.dev) !  
 :::

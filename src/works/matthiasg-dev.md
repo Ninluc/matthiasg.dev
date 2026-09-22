@@ -1,7 +1,7 @@
 ---
 title: matthiasg.dev
 category: personnel
-date: '09/08/2023'
+date: '2023-08-09'
 projectDate: "juin 2023 - aujourd'hui"
 # projectLink: '/'
 description: 'Ce site ! Un portfolio qui me sert aussi de site personnel. Fais avec svelte et hébergé sur mon raspberry pi.'

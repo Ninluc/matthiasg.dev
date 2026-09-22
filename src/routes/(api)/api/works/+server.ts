@@ -30,9 +30,7 @@ async function getWorks() {
 		works = works.slice(0, limit);
 	} */
 
-	works = works.sort(
-		(a: WorksApi, b: WorksApi) => new Date(b.date).getTime() - new Date(a.date).getTime()
-	);
+	works = works.sort((a: WorksApi, b: WorksApi) => Date.parse(b.date) - Date.parse(a.date));
 
 	return works;
 }

@@ -15,8 +15,8 @@
 		<div class="work-info">
 			<CategoryChip category={data.category} />
 			<p class="write-date">
-				<time datetime={format(parse(data.date, 'dd/MM/yyyy', new Date()), 'yyyy-MM-dd')}
-					>{data.date}</time
+				<time datetime={data.date}
+					>{format(parse(data.date, 'yyyy-MM-dd', new Date()), 'dd/MM/yyyy')}</time
 				>
 			</p>
 			{#if data.projectDate}
